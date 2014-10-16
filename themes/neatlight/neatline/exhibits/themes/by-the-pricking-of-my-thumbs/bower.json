@@ -1,0 +1,7 @@
+{
+    "name": "by-the-pricking-of-my-thumbs"
+  , "version": "0.0.1"
+  , "dependencies": {
+      "nprogress": ">= 0.1.2"
+  }
+}

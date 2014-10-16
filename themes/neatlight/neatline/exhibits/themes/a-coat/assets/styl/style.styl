@@ -1,0 +1,58 @@
+
+/**
+ * @package     omeka
+ * @subpackage  neatline-NeatLight
+ * @copyright   2014 Rector and Board of Visitors, University of Virginia
+ * @license     http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+
+@import url("http://fonts.googleapis.com/css?family=Special+Elite")
+@import url("http://fonts.googleapis.com/css?family=Cutive+Mono")
+$highlight = #0087e4
+
+body
+  font-size 14px
+  font-family "Cutive Mono"
+  color lighten(black, 20%)
+  font-weight 300
+  margin 0
+
+#neatline-narrative
+  position fixed
+  top 13px
+  left 60px
+
+  p
+    margin 0
+
+  span
+    display block
+    line-height 17px
+    margin-top 2px
+
+    &[data-neatline-slug="yeats"]
+      margin-top 5px
+
+  span
+    background transparent
+    padding 0
+
+    &.highlighted, &.selected
+      color $highlight
+
+  .instructions
+    font-size 0.8em
+    color lighten(black, 70%)
+
+#navigation
+  position fixed
+  font-size 12px
+  top 10px
+  right 15px
+
+  a
+    text-decoration none
+    color $highlight
+
+    &:hover
+      text-decoration underline

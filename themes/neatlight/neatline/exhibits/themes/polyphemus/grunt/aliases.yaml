@@ -1,0 +1,10 @@
+
+build:
+  - bower
+
+compile:
+  - stylus
+  - uglify
+
+default:
+  - compile

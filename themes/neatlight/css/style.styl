@@ -1,0 +1,119 @@
+
+/**
+ * @package     omeka
+ * @subpackage  neatline-NeatLight
+ * @copyright   2014 Rector and Board of Visitors, University of Virginia
+ * @license     http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+
+
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,700,300")
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600")
+@import url("http://fonts.googleapis.com/css?family=Roboto+Condensed:300")
+
+$accent-color = #006ebb
+$border-color = darken(white, 10%)
+
+
+// GENERIC STYLES
+// ----------------------------------------------------------------------------
+
+*
+  box-sizing border-box
+  -webkit-box-sizing border-box
+  -moz-box-sizing border-box
+
+  ::selection
+    background $accent-color
+    color white
+
+body
+  font-family "Source Sans Pro"
+  font-weight 300
+  margin 0
+
+a
+  text-decoration none
+  color $accent-color
+
+  &:hover
+    text-decoration underline
+
+
+// EXHIBIT BROWSE
+// ----------------------------------------------------------------------------
+
+body.neatline.browse
+  font-size 12px
+  background darken(white, 1%)
+
+  div.container
+    font-size 1.2em
+    margin 3em auto
+    width 50%
+
+    div.exhibitmap
+      margin 5px 0
+
+    p.title
+      font-weight bold
+
+
+// EXHIBIT SHOW
+// ----------------------------------------------------------------------------
+
+body.neatline.show
+  background darken(white, 0.5%)
+  font-family "Roboto Condensed"
+  font-size 16px
+
+  div.exhibit
+    float left
+    width 1px
+
+    #neatline, #neatline-map
+      height 100%
+      width 100%
+
+  div.narrative
+    float right
+    overflow-y scroll
+    padding 2em
+    width 500px
+
+    a.back
+      display inline-block
+      padding 5px 8px
+      margin-bottom 1em
+      font-size 0.8em;
+
+      .arrow
+        font-size 13px
+
+    h1.title
+      margin 0
+      padding-bottom 0.2em
+      font-family Oswald
+      font-weight 200
+      border-bottom 1px solid $border-color
+      font-size 40px
+
+    p
+      line-height 1.7em
+
+  #static-bubble
+
+    div.body
+      font-size 17px
+
+    a.close
+      font-size 2em
+      line-height 0.8em
+
+      &:hover
+        color $accent-color
+        background none
+
+  #colophon
+    border-top 1px solid $border-color
+    font-size 0.8em;

@@ -1,0 +1,10 @@
+{
+  "name": "neatline-visjs",
+  "version": "0.1.0",
+  "dependencies": {
+    "nprogress": "~0.1.4",
+    "bootstrap": "~3.1.1",
+    "lesshat": "~3.0.2",
+    "vis": "~3.1.0"
+  }
+}

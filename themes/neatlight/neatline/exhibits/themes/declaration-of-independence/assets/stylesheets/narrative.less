@@ -1,0 +1,123 @@
+
+/**
+ * @package     omeka
+ * @subpackage  neatline-NeatLight
+ * @copyright   2014 Rector and Board of Visitors, University of Virginia
+ * @license     http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+
+div.narrative {
+
+  .overlay;
+  position: absolute;
+  overflow-y: scroll;
+  padding: 2em 3em;
+  width: @text-width;
+  left: @text-gutter;
+  z-index: 1;
+
+  p, li {
+    font-size: 18px;
+  }
+
+  hr {
+    border-top: 1px solid lighten(black, 80%);
+    margin: 10px 0;
+  }
+
+  [data-neatline-slug] {
+
+    padding: 2px 0;
+    background: transparent;
+    cursor: pointer;
+
+    &.highlighted {
+      background: darken(white, 15%);
+    }
+
+    &.selected {
+      background: darken(white, 20%);
+      color: lighten(black, 5%);
+    }
+
+  }
+
+  .declaration {
+
+    h1, h2, h4 {
+      text-align: center;
+      margin: 0;
+      padding: 10px 0;
+    }
+
+    p.divider {
+      text-align: center
+    }
+
+    ul.grievances {
+      padding-left: 2em;
+
+      li {
+        margin-bottom: 0.5em
+      }
+
+    }
+
+  }
+
+  .signers {
+
+    [data-neatline-slug] {
+
+      border-radius: 2px;
+      padding: 2px 4px;
+
+      &.selected {
+        color: white;
+      }
+
+    }
+
+    h3 {
+      font-weight: bold;
+    }
+
+    .glyphicon {
+      font-size: 10px;
+      padding: 5px;
+    }
+
+    .tooltip {
+      font-family: "Helvetica Neue";
+    }
+
+    ul.state {
+
+      &.confederate {
+        [data-neatline-slug].selected {
+          background: @confederate;
+        }
+      }
+
+      &.union {
+        [data-neatline-slug].selected {
+          background: @union;
+        }
+      }
+
+      li {
+
+        margin: 8px 0;
+
+        span.hancock {
+          padding: 5px 10px;
+          font-size: 34px;
+        }
+
+      }
+
+    }
+
+  }
+
+}

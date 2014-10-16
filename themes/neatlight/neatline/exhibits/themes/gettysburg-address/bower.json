@@ -1,0 +1,10 @@
+{
+    "name": "gettysburg-address"
+  , "version": "0.0.1"
+  , "dependencies": {
+      "d3":         ">= 3.4.3"
+    , "nprogress":  ">= 0.1.2"
+    , "bootstrap":  ">= 3.1.0"
+    , "Boxer":      ">= 3.0.7"
+  }
+}

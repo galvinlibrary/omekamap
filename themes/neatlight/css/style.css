@@ -1,0 +1,545 @@
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,700,300");
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600");
+@import url("http://fonts.googleapis.com/css?family=Roboto+Condensed:300");
+
+*{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}* ::selection{background:#006ebb;color:#fff}
+
+body{
+
+font-family:"Source Sans Pro";
+font-weight:300;
+margin:0}
+
+a{text-decoration:none;
+color:#006ebb;
+}
+
+a:hover{
+text-decoration:underline
+}
+
+body.neatline.browse{
+
+font-size:12px;
+background:#fcfcfc;
+}
+
+body.neatline.browse div.container{
+
+font-size:1.2em;
+margin:3em auto;
+width:50%;
+}
+ body.neatline.browse div.container div.exhibit{
+
+margin:5px 0
+} 
+body.neatline.browse div.container p.title{
+
+font-weight:bold
+}
+body.neatline.show{
+
+background:#fefefe;
+font-family:"Roboto Condensed";
+font-size:16px;
+}
+
+body.neatline.show div.exhibit{
+
+float:left;
+width:1px;
+width:75%;
+position: absolute
+}
+
+body.neatline.show div.exhibit #neatline,
+
+body.neatline.show div.exhibit #neatline-map{
+
+height:100%;
+width:100%}
+
+body.neatline.show div.narrative{
+
+float:right;
+overflow-y:scroll;
+padding:2em;
+/*width:500px;*/
+width:25%;
+}
+
+body.neatline.show div.narrative a.back{
+
+display:inline-block;
+padding:5px 8px;
+margin-bottom:1em;
+font-size:.8em;
+}
+
+body.neatline.show div.narrative a.back .arrow{
+
+font-size:13px
+}
+
+body.neatline.show div.narrative h1.title{
+
+margin:0;
+padding-bottom:.2em;
+font-family:Oswald;
+font-weight:200;
+border-bottom:1px solid #e6e6e6;
+font-size:40px
+}
+
+body.neatline.show div.narrative p{
+
+line-height:1.7em
+}
+
+body.neatline.show #static-bubble div.body{
+
+font-size:17px
+}
+
+body.neatline.show #static-bubble a.close{
+
+font-size:2em;line-height:.8em;
+}
+
+body.neatline.show #static-bubble a.close:hover{
+
+color:#006ebb;background:none
+}
+
+body.neatline.show #colophon{
+
+border-top:1px solid #e6e6e6;
+font-size:.8em
+}
+
+/*AS Edits Start Here -- Some override original css styling, some create new styles*/
+
+#primary h1 {
+font-family:"Roboto Condensed";
+}
+
+h3 {
+display: block;
+font-size: 1.17em;
+line-height: 1.17em;
+-webkit-margin-before: 0px;
+-webkit-margin-after: 0px;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+}
+
+a {
+text-decoration:none;
+color:#cf4c4c;
+}
+
+.nav{
+background-color: red;
+position: absolute;
+top: 2%;
+right: 5%;
+z-index: 9999;
+}
+
+.nav a {
+color: white;
+text-transform: bold;
+}
+
+.nav ul{
+padding: 2px;
+margin: 0px;
+}
+
+.nav li {
+display: inline;
+padding: 0px 2px;
+}
+
+/*Changing Selection Color for most elements on the site*/
+*{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}* ::selection{background:#808080 ;color:#fff}
+*{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}* ::-moz-selection{background:#808080 ;color:#fff}
+
+/*Getting rid of blue select color that shades the timeline when moving cursor across the dotted selection line
+Possible overkill, but individual parts of the timeline seem to need to be set individually*/
+.timeline-band-layer::selection{background:#fefefe;color:#000}
+.timeline-band::selection{background:#fefefe;color:#000}
+.timeline-band-inner::selection{background:#fefefe;color:#000}
+.timeline-band-layer-inner::selection{background:#fefefe;color:#000}
+.timeline-band-input::selection{background:#fefefe;color:#000}
+.timeline-container::selection{background:#fefefe;color:#000}
+.timeline-ether-bg::selection{background:#fefefe;color:#000}
+.timeline-date-label::selection{background:#fefefe;color:#000}
+#simile img::selection{background:#fefefe;color:#000}
+
+.timeline-band-layer::-moz-selection{background:#fefefe;color:#000}
+.timeline-band::-moz-selection{background:#fefefe;color:#000}
+.timeline-band-inner::-moz-selection{background:#fefefe;color:#000}
+.timeline-band-layer-inner::-moz-selection{background:#fefefe;color:#000}
+.timeline-band-input::-moz-selection{background:#fefefe;color:#000}
+.timeline-container::-moz-selection{background:#fefefe;color:#000}
+.timeline-ether-bg::-moz-selection{background:#fefefe;color:#000}
+.timeline-date-label::-moz-selection{background:#fefefe;color:#000}
+#simile img::-moz-selection{background:#fefefe;color:#000}
+
+/*Resizing narrative, adding shadow and positioning to keep shadow visible*/
+body.neatline.show div.narrative{
+float:right;
+overflow-y:auto;
+padding:2em;
+max-width:400px;
+opacity: 1;
+/*display: none;*/
+/*-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);*/
+}
+
+/*div.narrative:after {
+content: "";
+position: absolute;
+top: 0;
+right: 0;
+max-width: 400px;
+min-height: 100%;
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+width: 24%;
+z-index: -1;
+} */
+
+.bubble.static.bound {
+position: absolute;
+background: #fefefe;
+border-radius: 2px;
+color: #000;
+padding: 1em;
+max-height: 87%;
+width: 25vw;
+right: -33%;
+left: initial;
+top: 20px;
+opacity: 0;
+} 
+
+.bubble.static.selected {
+position: absolute;
+background: #fefefe;
+border-radius: 2px;
+color: #000;
+padding: 1em;
+max-height: 87%;
+width: 25vw;
+right: -33%;
+left: initial;
+top: 20px;
+opacity: 1;
+} 
+ 
+
+/*Custom pop-up styling and positioning -- matched .bound above in original design
+.bubble.static.selected {
+overflow-y: auto;
+position: absolute;
+background: #fefefe;
+border-radius: 2px;
+color: #000;
+padding: 1em;
+max-height: 87%;
+width: 50%;
+max-width: 400px;
+right: 2%;
+left: initial;
+top: 10%;
+opacity: 1;
+}
+*/
+
+/*overrides pop-up style in Neatline views file for text edits*/
+.bubble.static .title {
+display: inline;
+font-size: 1.25em;
+line-height: 1em;
+}
+
+
+/* tweaking thumbnail display in pop-up to allow side-by-side display */
+#item-images div {
+display: inline;
+max-width: 40%;
+}
+
+/* Changing thumbnail size pop-up to allow side-by-side display*/
+.bubble.static img {
+max-width: 40%;
+}
+
+/* Styling selection marker in timeline */
+#simile:after {
+content: '';
+border-left: 3px dashed #FF0000;
+opacity: .7;
+z-index: 999;
+position: absolute;
+height: 100%;
+left: 45%;
+top: 1;
+/*width: 10%;
+background-color: yellow;
+border: none;*/
+} 
+
+/*Changing background color of timeline */
+#simile .timeline-ether-bg {
+    background-color: #FEFEFE; 
+}
+
+/* Positioning and Styling Simile Timeline */
+#neatline #simile {
+height: 100px;
+width: 40%;
+bottom: 20px;
+right: 20px;
+opacity: 1;
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+z-index: 998;
+}
+
+/*Colophon Styling and Positioning*/
+body.neatline.show #colophon {
+font-size: .8em;
+position: absolute;
+bottom: 0px;
+max-height: 15%;	
+border-top: none;
+}
+
+#colophon img {
+display: block;
+width: 90%;
+}
+
+body.neatline.show .timeline-band {
+position: absolute;
+background: #eee;
+z-index: 10;
+top: 0px;
+height: 100px;
+left: -1216px;
+width: 3055px;
+}
+
+/*Styling Item Show to Match Neatline Exhibit Style*/
+
+body.items.show {
+background:#fefefe;
+font-family:"Roboto Condensed";
+font-size:16px;
+}
+
+body.items.browse {
+background:#fefefe;
+font-family:"Roboto Condensed";
+font-size:16px;
+}
+
+body.items.show {
+padding-left: 20px;
+padding-right: 20px;
+}
+
+body.items.browse {
+padding-left: 20px;
+padding-right: 20px;
+}
+
+body.items.show #header {
+padding-left: 10px;
+padding-right: 10px;
+}
+
+body.items.show #colophon {
+padding-right : 40px;
+}
+
+body.items.show #colophon img {
+float: right;
+width: initial;
+}
+
+body.items.browse #colophon img {
+float: right;
+width: initial;
+max-width: initial;
+}
+
+body.items.show li {
+display: inline;
+}
+
+body.items.browse li {
+list-style-type: none;
+display: inline;
+margin-left: 10px;
+}
+
+body.items.browse form {
+list-style-type: none;
+display: inline;
+margin-left: 10px;
+}
+
+body.items.browse .page-input {
+list-style-type: none;
+display: inline;
+margin-left: 0px;
+}
+
+body.items.browse ul {
+margin-top: 0px; 
+}
+
+body.items.browse hr {
+padding-left: 20px;
+padding-right: 20px;
+width: 100%;
+}
+
+body.items.browse #sort-links {
+margin-top: 10px;
+}
+
+body.items.browse li.sorting.desc{
+font-weight: bold; 
+}
+
+body.items.browse li.sorting.asc :before{
+content: "↑";
+}
+
+body.items.browse li.sorting.desc :before{
+content: "↓";
+}
+
+body.items.browse li.sorting.asc{
+font-weight: bold; 
+}
+
+body.items.browse .pagination_next :after{
+content: "→";
+}
+
+body.items.browse .pagination_previous :before{
+content: "←";
+}
+
+body.items.show .previous {
+float: left;
+}
+
+body.items.show .next {
+float: right;
+}
+
+body.items.show #search-container {
+float: right;
+width: 20%;
+display: inline;
+}
+
+body.items.show #search-container form {
+display: inline;
+}
+
+ body.items.show #search-container input {
+    margin: 0;
+  }
+body.items.show #search-container input[type=text] {
+    color: #555;
+    width: 79%;
+    border: 1;
+    padding-right: 2em;
+  }
+  
+body.items.show #search-container input[type=button] button {
+	font-family:"Roboto Condensed";
+    color: #555;
+    width: 100%;
+    border: initial;
+  }
+  
+body.items.show #search-container button {
+	font-family:"Roboto Condensed";
+	font-size: 12pt;
+    color: #cf4c4c;
+	background: #fefefe;
+    border: 1px #000;
+	float: right;
+	margin-top: 1px;
+	cursor: pointer;
+  }
+  
+body.items.show #search-container input[type=submit] {
+	font-family:"Roboto Condensed";
+    background-color: transparent;
+    line-height: 0;
+    border: none;
+    cursor: pointer;
+
+  }
+  
+body.items.show #search-container input[type=submit]:hover, #search-container input[type=submit]:focus, #search-container input[type=submit]:active {
+    outline: none;
+}
+
+body.items.browse img {
+max-height: 100px;
+max-width: 100px;
+display: inline-block;
+float: left;
+margin-right: 10px;
+margin-bottom: 10px;
+}
+
+body.items.browse .hentry {
+max-width: 29%;
+min-width: 400px;
+display: inline;
+float: left;
+}
+
+body.items.browse input[type=text] {
+width: 20px;
+font-family:"Roboto Condensed";
+font-size: 11pt;
+text-align: center;
+}
+
+body.simple-page {
+font-family:"Roboto Condensed";
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.simple-page img {
+float: right;
+}
+
+/* MK edit - commented out as it caused an error in Neatline Simile. Simile box would appear empty until window was resized. */
+body.neatline.show div.exhibit{
+
+/*float:left;
+width:1px;*/
+width:75%;
+position: absolute
+}

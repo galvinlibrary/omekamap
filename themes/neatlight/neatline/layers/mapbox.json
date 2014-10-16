@@ -1,0 +1,49 @@
+{
+
+  "Mapbox (Neatlight)": [
+
+    {
+      "title": "Project Gemini over Baja California Sur",
+      "id": "Mapbox.dclure.hc7a4mo9",
+      "type": "XYZ",
+      "properties": {
+        "urls": [
+          "http://a.tiles.mapbox.com/v3/dclure.hc7a4mo9/${z}/${x}/${y}.png",
+          "http://b.tiles.mapbox.com/v3/dclure.hc7a4mo9/${z}/${x}/${y}.png",
+          "http://c.tiles.mapbox.com/v3/dclure.hc7a4mo9/${z}/${x}/${y}.png",
+          "http://d.tiles.mapbox.com/v3/dclure.hc7a4mo9/${z}/${x}/${y}.png"
+        ]
+      }
+    },
+
+    {
+      "title": "The Declaration of Independence",
+      "id": "Mapbox.dclure.i76fpfoj",
+      "type": "XYZ",
+      "properties": {
+        "urls": [
+          "http://a.tiles.mapbox.com/v3/dclure.i76fpfoj/${z}/${x}/${y}.png",
+          "http://b.tiles.mapbox.com/v3/dclure.i76fpfoj/${z}/${x}/${y}.png",
+          "http://c.tiles.mapbox.com/v3/dclure.i76fpfoj/${z}/${x}/${y}.png",
+          "http://d.tiles.mapbox.com/v3/dclure.i76fpfoj/${z}/${x}/${y}.png"
+        ]
+      }
+    },
+
+    {
+      "title": "Vis.js Timeline",
+      "id": "Mapbox.dclure.j3fcdi89",
+      "type": "XYZ",
+      "properties": {
+        "urls": [
+          "http://a.tiles.mapbox.com/v3/dclure.j3fcdi89/${z}/${x}/${y}.png",
+          "http://b.tiles.mapbox.com/v3/dclure.j3fcdi89/${z}/${x}/${y}.png",
+          "http://c.tiles.mapbox.com/v3/dclure.j3fcdi89/${z}/${x}/${y}.png",
+          "http://d.tiles.mapbox.com/v3/dclure.j3fcdi89/${z}/${x}/${y}.png"
+        ]
+      }
+    }
+
+  ]
+
+}
