@@ -12,9 +12,11 @@
             <?php// echo search_form(array('form_attributes' => array('role' => 'search'))); ?>
     </div> -->
 	
-	<a href="http://216.47.136.108/">← Go back to the map</a> 
-	<br>
-	<?php echo link_to_items_browse('← Browse all locations', array('collection' => 1, 'sort_field' => 'Dublin Core,Title', 'sort_dir' => 'a'), array()); ?>
+	<!-- navigation menu -->
+<div class="nav">
+<h3><?php echo nl_getExhibitField('title'); ?></h3>
+<?php echo public_nav_main(); ?>
+</div> 
 
 </div>
 <div id="primary"> 
@@ -22,7 +24,8 @@
     <h1><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
 	
 	<div id="item-images">
-         <?php echo files_for_item(); ?>
+        <!-- <?php// echo files_for_item(); ?> -->
+		 <?php echo item_image_gallery($attrs = array(), $imageType = 'square_thumbnail', $filesShow = true, $item = null); ?>
     </div>
 
 <!-- display of specific fields, no labels, with checks for existence of values to avoid extra line breaks if element doesn't exist -->

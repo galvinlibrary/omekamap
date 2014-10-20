@@ -13,7 +13,7 @@
 <?php if (metadata('item', 'has files')): ?>
   <!-- <h3><?php //echo __('Files'); ?></h3> --!>
   <?php //echo files_for_item(); ?>
-  <?php echo item_image_gallery(array('link'=>array('target'=>'_blank'))); ?>
+  <?php echo item_image_gallery(array('link'=>array('target'=>'_blank')), $imageType = 'square_thumbnail', $filesShow = true); ?>
 <?php endif; ?>
 
 <!-- Texts. -->
@@ -36,14 +36,11 @@
 	<?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
 <?php endif; ?>
 <br><br>
-<?php echo metadata('item', array('Dublin Core', 'Description')); ?>
+<?php //echo metadata('item', array('Dublin Core', 'Description')); ?>
 
 
 <hr />
 
 <!-- Link. -->
 
-
-<?php echo link_to(
-  get_current_record('item'), 'show', 'View this item in a new tab', array('target'=>'_blank')
-); ?>
+<?php echo link_to(get_current_record('item'), 'show', 'More info'); ?>

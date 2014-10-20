@@ -23,6 +23,9 @@
 
     <!-- Google analytics. -->
     <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
+	
+	<!-- For use with media queries AS edit --> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS/JS. -->
     <?php echo head_css(false); ?>

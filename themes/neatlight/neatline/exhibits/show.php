@@ -21,14 +21,11 @@
 
 <div class="exhibit"> 
 	
-	<!--custom navigation menu -->
-<!-- <div class="nav">
-<?php //$navArray = array(); 
-//$navArray[] = array('label'=>'Map', 'uri'=>url('/')); 
-//$navArray[] = array('label'=>'Browse Locations', 'uri'=>url('/items/browse?collection=1&sort_field=Dublin+Core%2CTitle&sort_dir=a')); 
-//$navArray[] = array('label' =>'About', 'uri'=>url('about')); ?>
-<?php //echo nav($navArray); ?>
-</div> -->
+<!-- navigation menu -->
+<div class="nav">
+<h3><?php echo nl_getExhibitField('title'); ?></h3>
+<?php echo public_nav_main(); ?>
+</div> 
 
   <?php echo nl_getExhibitMarkup(); ?>
 </div> 

@@ -120,6 +120,7 @@ font-size:.8em
 
 /*AS Edits Start Here -- Some override original css styling, some create new styles*/
 
+
 #primary h1 {
 font-family:"Roboto Condensed";
 }
@@ -141,13 +142,22 @@ color:#cf4c4c;
 }
 
 .nav{
-background-color: red;
+background-color: #cf4c4c;
 position: absolute;
 top: 2%;
 right: 5%;
 z-index: 9999;
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+max-width: 80%;
 }
 
+.nav h3 {
+color: white;
+padding: 0px 2px;
+font-size: 2em;
+}
 .nav a {
 color: white;
 text-transform: bold;
@@ -156,11 +166,12 @@ text-transform: bold;
 .nav ul{
 padding: 2px;
 margin: 0px;
+float: right;
 }
 
 .nav li {
 display: inline;
-padding: 0px 2px;
+padding: 0px 8px;
 }
 
 /*Changing Selection Color for most elements on the site*/
@@ -266,6 +277,7 @@ right: 2%;
 left: initial;
 top: 10%;
 opacity: 1;
+font-size: 1em;
 }
 
 
