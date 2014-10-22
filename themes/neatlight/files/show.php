@@ -11,11 +11,10 @@ set_current_record('item', $item);
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 
 <div id="header">
-	<h2>IIT Campus Map</h2>
-	
-	<a href="http://216.47.136.108/">? Go back to the map</a> 
-	<br>
-	<?php echo link_to_items_browse('? Browse all locations', array('collection' => 1, 'sort_field' => 'Dublin Core,Title', 'sort_dir' => 'a'), array()); ?>
+<div class="nav">
+<h3>Interactive IIT Campus Map</h3>
+<?php echo public_nav_main(); ?>
+</div> 
 </div>
 
 <div id="primary"> 

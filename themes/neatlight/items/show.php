@@ -5,7 +5,6 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 
 <div id="header">
-	<h2>IIT Campus Map</h2>
 	
 	<!-- Search across collections disabled -->
 	<!--<div id="search-container">
@@ -14,7 +13,7 @@
 	
 	<!-- navigation menu -->
 <div class="nav">
-<h3><?php echo nl_getExhibitField('title'); ?></h3>
+<h3>Interactive IIT Campus Map</h3>
 <?php echo public_nav_main(); ?>
 </div> 
 
@@ -25,8 +24,10 @@
 	
 	<div id="item-images">
         <!-- <?php// echo files_for_item(); ?> -->
-		 <?php echo item_image_gallery($attrs = array(), $imageType = 'square_thumbnail', $filesShow = true, $item = null); ?>
-    </div>
+		<?php echo item_image_gallery($attrs = array(), $imageType = 'square_thumbnail', $filesShow = true, $item = null); ?> 
+		
+
+   </div>
 
 <!-- display of specific fields, no labels, with checks for existence of values to avoid extra line breaks if element doesn't exist -->
 <?php if (metadata('item', array('Dublin Core', 'Creator')) !=NULL): ?>

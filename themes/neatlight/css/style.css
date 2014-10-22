@@ -144,8 +144,8 @@ color:#cf4c4c;
 .nav{
 background-color: #cf4c4c;
 position: absolute;
-top: 2%;
-right: 5%;
+top: .75em;
+right: 2em;
 z-index: 9999;
 -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
@@ -155,8 +155,9 @@ max-width: 80%;
 
 .nav h3 {
 color: white;
-padding: 0px 2px;
+padding: 0px 12px;
 font-size: 2em;
+margin: 0px;
 }
 .nav a {
 color: white;
@@ -164,7 +165,7 @@ text-transform: bold;
 }
 
 .nav ul{
-padding: 2px;
+padding: 5px 3px;
 margin: 0px;
 float: right;
 }
@@ -275,7 +276,7 @@ width: 50%;
 max-width: 400px;
 right: 2%;
 left: initial;
-top: 10%;
+top: 15%;
 opacity: 1;
 font-size: 1em;
 }
@@ -575,4 +576,13 @@ width:1px;*/
 /*width:75%; */
 width: 100%; /*AS experiment with full screen view */
 position: absolute;
+}
+
+/*AS edits for mobile screens*/
+@media screen and (max-width: 37.5em) {
+.nav h3 {
+color: white;
+padding: 0px 12px;
+font-size: 1.25em;
+}
 }
