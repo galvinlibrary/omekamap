@@ -17,17 +17,21 @@
   'bodyclass' => 'neatline show'
 )); ?>
 
+
+
+
 <!-- Exhibit -->
 
 <div class="exhibit"> 
 	
+
+  <?php echo nl_getExhibitMarkup(); ?>
+</div> 
+
 <!-- navigation menu -->
 <div class="nav">
 <h3><?php echo nl_getExhibitField('title'); ?></h3>
 <?php echo public_nav_main(); ?>
-</div> 
-
-  <?php echo nl_getExhibitMarkup(); ?>
 </div> 
 
 <div id="neatline-narrative" class="narrative">

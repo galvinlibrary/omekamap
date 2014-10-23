@@ -2,11 +2,19 @@
 
 <?php $pageTitle = __('Browse Items'); echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse')); ?>
 
+<div id="header">
+	<div class="nav">
+	<h3>IIT Campus Map</h3>
+	<?php echo public_nav_main(); ?>
+	</div> 
+</div>
+<div id="container">
+<div id="primary"> 
+
 <h2><?php echo $pageTitle;?> <?php echo __('(%s total)', $total_results); ?></h2>
 
 <?php //echo pagination_links(); ?>
-<a href="http://216.47.136.108/">← Go back to the map</a> 
-<br>
+
 <?php if ($total_results > 0): ?>
 
 <?php
@@ -72,4 +80,6 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 <hr class="content" >
 <img alt="IIT Logo" title="IIT Logo" src="<?php echo img('IIT_Logo_horiz_186_blk.gif');?>"/>
 </div>
+</div>
 <?php echo foot(); ?>
+</div>

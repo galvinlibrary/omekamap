@@ -120,6 +120,15 @@ font-size:.8em
 
 /*AS Edits Start Here -- Some override original css styling, some create new styles*/
 
+/*forces scroll bar for consistent rendering across pages */
+
+body.items {
+overflow-y: scroll;
+}
+
+body.simple-page {
+overflow-y: scroll;
+}
 
 #primary h1 {
 font-family:"Roboto Condensed";
@@ -143,17 +152,19 @@ color:#cf4c4c;
 
 .nav{
 background-color: #cf4c4c;
-position: absolute;
-top: .75em;
-right: 2em;
+position: relative;
+top: 0;
+left: auto;
+right: auto;
 z-index: 9999;
--webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+/*-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-max-width: 80%;
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);*/
+max-width: 70%;
 }
 
 .nav h3 {
+display: inline;
 color: white;
 padding: 0px 12px;
 font-size: 2em;
@@ -174,6 +185,7 @@ float: right;
 display: inline;
 padding: 0px 8px;
 }
+
 
 /*Changing Selection Color for most elements on the site*/
 *{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}* ::selection{background:#808080 ;color:#fff}
@@ -279,8 +291,16 @@ left: initial;
 top: 15%;
 opacity: 1;
 font-size: 1em;
+z-index: 500;
 }
 
+.bubble.static.selected hr {
+display: none;
+}
+
+.bubble.static.selected hr .content {
+display: none;
+}
 
 /*overrides pop-up style in Neatline views file for text edits*/
 .bubble.static .title {
@@ -339,8 +359,8 @@ top: 50%;
 #neatline #simile {
 height: 100px;
 width: 40%;
-bottom: 20px;
-right: 20px;
+bottom: 10px;
+right: 10px;
 opacity: 1;
 -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
@@ -389,16 +409,16 @@ font-size:16px;
 body.items.show {
 padding-left: 20px;
 padding-right: 20px;
-}
+} 
 
 body.items.browse {
 padding-left: 20px;
 padding-right: 20px;
 }
 
-body.items.show #header {
-padding-left: 10px;
-padding-right: 10px;
+#header{
+height: 50px;
+width: 100%;
 }
 
 body.items.show #colophon {
@@ -410,20 +430,23 @@ float: right;
 width: initial;
 }
 
-body.items.browse #colophon img {
+body.items.browse #colophon {
+padding-right : 40px;
+}
+
+#colophon img {
 float: right;
 width: initial;
-max-width: initial;
 }
 
 body.items.show li {
 display: inline;
 }
 
-body.items.browse li {
+body.items.browse #sort-links-list li {
 list-style-type: none;
 display: inline;
-margin-left: 10px;
+margin-left: 8px;
 }
 
 body.items.browse form {
@@ -438,11 +461,11 @@ display: inline;
 margin-left: 0px;
 }
 
-body.items.browse ul {
+/*body.items.browse ul {
 margin-top: 0px; 
-}
+}*/
 
-body.items.browse hr {
+#colophon hr {
 padding-left: 20px;
 padding-right: 20px;
 width: 100%;
@@ -535,7 +558,7 @@ body.items.show #search-container input[type=submit]:hover, #search-container in
     outline: none;
 }
 
-body.items.browse img {
+body.items.browse .hentry img {
 max-height: 100px;
 max-width: 100px;
 display: inline-block;
@@ -575,14 +598,69 @@ body.neatline.show div.exhibit{
 width:1px;*/
 /*width:75%; */
 width: 100%; /*AS experiment with full screen view */
-position: absolute;
+/*height: 90%;*/
+/*position: relative;*/
+/*position: absolute;*/
+}
+
+#OpenLayers_Control_PanZoom_2_zoomworld {
+top: 181px;
+}
+
+.olControlLayerSwitcher .maximizeDiv, .olControlLayerSwitcher .minimizeDiv {
+top: 55px;
 }
 
 /*AS edits for mobile screens*/
 @media screen and (max-width: 37.5em) {
+
+
+body.items .nav {
+min-width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+right: initial;
+padding-top: 5px;
+}
+
+.simple-page .nav {
+min-width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+right: initial;
+padding-top: 5px;
+}
+
 .nav h3 {
 color: white;
 padding: 0px 12px;
-font-size: 1.25em;
+font-size: 1em;
+display: inline;
 }
+
+li {
+list-style-type: none;
+display: inline;
+margin-left: 5px;
 }
+
+body.items.browse .hentry {
+max-width: 22.5em;
+min-width: 21em;
+display: inline;
+float: left;
+}
+
+#colophon img {
+display: block;
+max-width: 90%;
+}
+
+/*#simile {
+width: 100%;
+}*/
+
+
+} /* end mobile edits */

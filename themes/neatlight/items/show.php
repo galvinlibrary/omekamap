@@ -13,7 +13,7 @@
 	
 	<!-- navigation menu -->
 <div class="nav">
-<h3>Interactive IIT Campus Map</h3>
+<h3>IIT Campus Map</h3>
 <?php echo public_nav_main(); ?>
 </div> 
 
@@ -59,10 +59,10 @@
 
 
 
-<hr />
 
 <div id="colophon">
  <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
+<hr />
 
 <!-- Next/Previous Item linking disabled -->
    <!-- <ul class="item-pagination navigation">
