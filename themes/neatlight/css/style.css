@@ -143,6 +143,7 @@ line-height: 1.17em;
 -webkit-margin-start: 0px;
 -webkit-margin-end: 0px;
 font-weight: bold;
+margin: none;
 }
 
 a {
@@ -152,15 +153,16 @@ color:#cf4c4c;
 
 .nav{
 background-color: #cf4c4c;
-position: relative;
+position: absolute;
 top: 0;
-left: auto;
+left: 0;
 right: auto;
 z-index: 9999;
 /*-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 box-shadow: 0 3px 8px rgba(0, 0, 0, .25);*/
-max-width: 70%;
+width: 100%;
+padding-bottom: 5px;
 }
 
 .nav h3 {
@@ -193,39 +195,84 @@ padding: 0px 8px;
 
 /*Getting rid of blue select color that shades the timeline when moving cursor across the dotted selection line
 Possible overkill, but individual parts of the timeline seem to need to be set individually*/
-.timeline-band-layer::selection{background:#fefefe;color:#000}
-.timeline-band::selection{background:#fefefe;color:#000}
-.timeline-band-inner::selection{background:#fefefe;color:#000}
-.timeline-band-layer-inner::selection{background:#fefefe;color:#000}
-.timeline-band-input::selection{background:#fefefe;color:#000}
-.timeline-container::selection{background:#fefefe;color:#000}
-.timeline-ether-bg::selection{background:#fefefe;color:#000}
-.timeline-date-label::selection{background:#fefefe;color:#000}
-#simile img::selection{background:#fefefe;color:#000}
+.timeline-band-layer::selection{background:#f5f5f5;color:#000}
+.timeline-band::selection{background:#f5f5f5;color:#000}
+.timeline-band-inner::selection{background:#f5f5f5;color:#000}
+.timeline-band-layer-inner::selection{background:#f5f5f5;color:#000}
+.timeline-band-input::selection{background:#f5f5f5;color:#000}
+.timeline-container::selection{background:#f5f5f5;color:#000}
+.timeline-ether-bg::selection{background:#f5f5f5;color:#000}
+.timeline-date-label::selection{background:#f5f5f5;color:#000}
+#simile img::selection{background:#f5f5f5;color:#000}
 
-.timeline-band-layer::-moz-selection{background:#fefefe;color:#000}
-.timeline-band::-moz-selection{background:#fefefe;color:#000}
-.timeline-band-inner::-moz-selection{background:#fefefe;color:#000}
-.timeline-band-layer-inner::-moz-selection{background:#fefefe;color:#000}
-.timeline-band-input::-moz-selection{background:#fefefe;color:#000}
-.timeline-container::-moz-selection{background:#fefefe;color:#000}
-.timeline-ether-bg::-moz-selection{background:#fefefe;color:#000}
-.timeline-date-label::-moz-selection{background:#fefefe;color:#000}
-#simile img::-moz-selection{background:#fefefe;color:#000}
+.timeline-band-layer::-moz-selection{background:#f5f5f5;color:#000}
+.timeline-band::-moz-selection{background:#f5f5f5;color:#000}
+.timeline-band-inner::-moz-selection{background:#f5f5f5;color:#000}
+.timeline-band-layer-inner::-moz-selection{background:#f5f5f5;color:#000}
+.timeline-band-input::-moz-selection{background:#f5f5f5;color:#000}
+.timeline-container::-moz-selection{background:#f5f5f5;color:#000}
+.timeline-ether-bg::-moz-selection{background:#f5f5f5;color:#000}
+.timeline-date-label::-moz-selection{background:#f5f5f5;color:#000}
+#simile img::-moz-selection{background:#f5f5f5;color:#000}
 
 /*Resizing narrative, adding shadow and positioning to keep shadow visible*/
 body.neatline.show div.narrative{
-display: none; /*AS experiment with removing narrative for full-screen view */
-
-float:right;
-overflow-y:auto;
-padding:2em;
-max-width:400px;
+overflow-y: auto;
+position: absolute;
+border-radius: 2px;
+color: #000;
+padding: 1em;
+max-height: 75%;
+width: 50%;
+max-width: 400px;
+right: 1.5em;
+left: initial;
+top: 1em;
 opacity: 1;
-/*-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
--moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);*/
+font-size: 1em;
+z-index: 500;
+display: none;
 }
+
+/*#instructions-link {
+display: block;
+width: 100%;
+}
+
+#instructions-link p {
+float: right;
+display: block;
+clear: both;
+margin-bottom: 15px;
+margin-left: 100px;
+background-color: #cf4c4c;
+padding: 0px 5px;
+color: white;
+}
+
+/*#instructions, #neatline-narrative:hover>#instructions-link {
+    display: none;
+}*/
+
+/* #instructions {
+    display: none;
+	height: 50%;
+	max-height: 200px;
+}
+
+#instructions-link:hover>#instructions {
+    display: block;
+}
+
+#instructions p {
+float: initial;
+display: block;
+clear: both;
+margin: initial;
+background-color: #f5f5f5;
+padding: initial;
+color: black;
+} */
 
 /*bubble style edited for full-screen view below */
 /*.bubble.static.bound {
@@ -242,53 +289,22 @@ top: 20px;
 opacity: 0;
 } */
 
-/*Custom pop-up styling and positioning -- see original design above*/
-bubble.static.bound {
-overflow-y: auto;
-position: absolute;
-background: #fefefe;
-border-radius: 2px;
-color: #000;
-padding: 1em;
-max-height: 87%;
-width: 50%;
-max-width: 400px;
-right: 2%;
-left: initial;
-top: 10%;
-opacity: 1;
-}
-
-/*bubble style edited for full-screen view below */
-/*.bubble.static.selected {
-position: absolute;
-background: #fefefe;
-border-radius: 2px;
-color: #000;
-padding: 1em;
-max-height: 87%;
-width: 25vw;
-right: -33%;
-left: initial;
-top: 20px;
-opacity: 1;
-} */
- 
 
 /*Custom pop-up styling and positioning -- see original design above*/
+.bubble.static.bound,
 .bubble.static.selected {
 overflow-y: auto;
 position: absolute;
-background: #fefefe;
+background: #f5f5f5;
 border-radius: 2px;
 color: #000;
 padding: 1em;
-max-height: 87%;
+max-height: 75%;
 width: 50%;
 max-width: 400px;
-right: 2%;
+right: 1.5em;
 left: initial;
-top: 15%;
+top: 4em;
 opacity: 1;
 font-size: 1em;
 z-index: 500;
@@ -352,7 +368,7 @@ top: 50%;
 
 /*Changing background color of timeline */
 #simile .timeline-ether-bg {
-    background-color: #FEFEFE; 
+    background-color: #F5F5F5; 
 }
 
 /* Positioning and Styling Simile Timeline */
@@ -395,13 +411,13 @@ width: 3055px;
 /*Styling Item Show to Match Neatline Exhibit Style*/
 
 body.items.show {
-background:#fefefe;
+background:#f5f5f5;
 font-family:"Roboto Condensed";
 font-size:16px;
 }
 
 body.items.browse {
-background:#fefefe;
+background:#f5f5f5;
 font-family:"Roboto Condensed";
 font-size:16px;
 }
@@ -538,7 +554,7 @@ body.items.show #search-container button {
 	font-family:"Roboto Condensed";
 	font-size: 12pt;
     color: #cf4c4c;
-	background: #fefefe;
+	background: #f5f5f5;
     border: 1px #000;
 	float: right;
 	margin-top: 1px;
@@ -585,6 +601,7 @@ body.simple-page {
 font-family:"Roboto Condensed";
 padding-left: 20px;
 padding-right: 20px;
+background-color: #f5f5f5;
 }
 
 .simple-page img {
@@ -598,13 +615,12 @@ body.neatline.show div.exhibit{
 width:1px;*/
 /*width:75%; */
 width: 100%; /*AS experiment with full screen view */
-/*height: 90%;*/
 /*position: relative;*/
 /*position: absolute;*/
 }
 
-#OpenLayers_Control_PanZoom_2_zoomworld {
-top: 181px;
+#OpenLayers_Control_PanZoom_2 {
+top: 54px !important;
 }
 
 .olControlLayerSwitcher .maximizeDiv, .olControlLayerSwitcher .minimizeDiv {
@@ -615,7 +631,7 @@ top: 55px;
 @media screen and (max-width: 37.5em) {
 
 
-body.items .nav {
+.nav {
 min-width: 100%;
 position: absolute;
 top: 0;
@@ -626,7 +642,7 @@ padding-top: 5px;
 
 .simple-page .nav {
 min-width: 100%;
-position: absolute;
+position: relative;
 top: 0;
 left: 0;
 right: initial;
@@ -653,14 +669,21 @@ display: inline;
 float: left;
 }
 
+#item-images img {
+max-width: 100px;
+}
+
 #colophon img {
 display: block;
 max-width: 90%;
 }
 
-/*#simile {
+#neatline #simile {
 width: 100%;
-}*/
+right: 0px;
+bottom: 0px;
+height: 60px;
+}
 
 
 } /* end mobile edits */

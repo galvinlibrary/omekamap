@@ -12,7 +12,7 @@ set_current_record('item', $item);
 
 <div id="header">
 <div class="nav">
-<h3>Interactive IIT Campus Map</h3>
+<h3>IIT Campus Map</h3>
 <?php echo public_nav_main(); ?>
 </div> 
 </div>
