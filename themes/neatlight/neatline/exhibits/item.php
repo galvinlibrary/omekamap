@@ -12,14 +12,16 @@
 <!-- Files. -->
 <div id="item-images">
 <?php if (metadata('item', 'has files')): ?>
+<?php $itemFiles = $item->Files; ?>
   <!-- <h3><?php //echo __('Files'); ?></h3> --!>
   <?php //echo files_for_item(); ?>
   <?php //echo item_image_gallery(array('link'=>array('target'=>'_self')), $imageType = 'square_thumbnail', $filesShow = true); ?>
-  <?php
-$itemFiles = $item->Files;
-echo file_markup($itemFiles[0], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true));
-echo file_markup($itemFiles[1], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true));
-?>
+<!-- Display first file for item automatically -->
+  <?php echo file_markup($itemFiles[0], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true)); ?>
+<!-- checks for existence of second file and displays it if it exists -->
+  <?php if (isset($files[1])): ?>
+<?php echo file_markup($itemFiles[1], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true)); ?>
+<?php endif; ?>
 <?php endif; ?>
 </div>
 

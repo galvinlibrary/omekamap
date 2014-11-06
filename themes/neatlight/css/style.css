@@ -142,7 +142,7 @@ line-height: 1.17em;
 -webkit-margin-after: 0px;
 -webkit-margin-start: 0px;
 -webkit-margin-end: 0px;
-font-weight: bold;
+font-weight: 500;
 margin: none;
 }
 
@@ -174,11 +174,11 @@ margin: 0px;
 }
 .nav a {
 color: white;
-text-transform: bold;
+font-size: 1.25em;
 }
 
 .nav ul{
-padding: 5px 3px;
+padding: 10px 15px 5px 5px;
 margin: 0px;
 float: right;
 }
@@ -188,6 +188,9 @@ display: inline;
 padding: 0px 8px;
 }
 
+.nav li  {
+
+}
 
 /*Changing Selection Color for most elements on the site*/
 *{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}* ::selection{background:#808080 ;color:#fff}
@@ -310,6 +313,11 @@ font-size: 1em;
 z-index: 500;
 }
 
+.bubble.static p {
+margin-top: 1em;
+margin-bottom: 0;
+}
+
 .bubble.static.selected hr {
 display: none;
 }
@@ -333,8 +341,8 @@ max-width: 40%;
 }
 
 /* Changing thumbnail size pop-up to allow side-by-side display*/
-.bubble.static img {
-max-width: 40%;
+.thumb  {
+max-width: 40% !important;
 }
 
 /* Styling selection marker in timeline -- before is rectangle, after is arrow*/
@@ -348,7 +356,7 @@ height: 50%;
 left: 45%;
 top: 1;
 width: 10px;
-background-color: #87CEEB;
+background-color: #00CC00;
 border: none;
 } 
 
@@ -359,7 +367,7 @@ width: 0;
 height: 0;
 border-left: 5px solid transparent;
 border-right: 5px solid transparent;
-border-top: 10px solid #87CEEB;
+border-top: 10px solid #00CC00;
 position: absolute;
 left: 45%; 
 top: 50%;
@@ -651,9 +659,14 @@ padding-top: 5px;
 
 .nav h3 {
 color: white;
-padding: 0px 12px;
-font-size: 1em;
+padding: 10px 12px;
+font-size: 1.15em;
 display: inline;
+}
+
+.nav a {
+color: white;
+font-size: 1em;
 }
 
 li {
@@ -662,15 +675,12 @@ display: inline;
 margin-left: 5px;
 }
 
+
 body.items.browse .hentry {
 max-width: 22.5em;
 min-width: 21em;
 display: inline;
 float: left;
-}
-
-#item-images img {
-max-width: 100px;
 }
 
 #colophon img {
@@ -679,11 +689,14 @@ max-width: 90%;
 }
 
 #neatline #simile {
-width: 100%;
+width: 100% !important;
 right: 0px;
 bottom: 0px;
 height: 60px;
 }
 
+img {
+max-width: 100%;
+}
 
 } /* end mobile edits */
