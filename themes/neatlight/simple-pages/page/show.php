@@ -10,14 +10,14 @@
 
 	<!-- navigation menu -->
 	<div class="nav">
-	<h3>IIT Campus Map</h3>
+	<h1>IIT Campus Map</h1>
 	<?php echo public_nav_main(); ?>
 	</div> 
 
 </div>
 
 <div id="primary">
-    <h1><?php echo metadata('simple_pages_page', 'title'); ?></h1>
+    <h2><?php echo metadata('simple_pages_page', 'title'); ?></h2>
     <?php
     $text = metadata('simple_pages_page', 'text', array('no_escape' => true));
     echo $this->shortcodes($text);

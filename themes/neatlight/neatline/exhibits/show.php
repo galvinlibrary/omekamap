@@ -20,7 +20,7 @@
 
 <!-- navigation menu -->
 <div class="nav">
-<h3><?php echo nl_getExhibitField('title'); ?></h3>
+<h1><?php echo nl_getExhibitField('title'); ?></h1>
 <?php echo public_nav_main(); ?>
 </div> 
 
@@ -30,15 +30,12 @@
 	
 
   <?php echo nl_getExhibitMarkup(); ?>
+    
 </div> 
-
 
   <!-- Narrative -->
 <div id="neatline-narrative" class="narrative">
-
- 
-  
-
+    
   <!-- Colophon -->
   <!-- <?php// echo common('colophon'); ?> -->
 

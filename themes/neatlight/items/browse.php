@@ -4,7 +4,7 @@
 
 <div id="header">
 	<div class="nav">
-	<h3>IIT Campus Map</h3>
+	<h1>IIT Campus Map</h1>
 	<?php echo public_nav_main(); ?>
 	</div> 
 </div>

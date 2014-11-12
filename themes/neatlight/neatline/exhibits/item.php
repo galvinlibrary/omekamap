@@ -19,9 +19,9 @@
 <!-- Display first file for item automatically -->
   <?php echo file_markup($itemFiles[0], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true)); ?>
 <!-- checks for existence of second file and displays it if it exists -->
-  <?php if (isset($files[1])): ?>
-<?php echo file_markup($itemFiles[1], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true)); ?>
-<?php endif; ?>
+  <?php if (isset($itemFiles[1])): ?>
+  <?php echo file_markup($itemFiles[1], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true)); ?>
+  <?php endif; ?>
 <?php endif; ?>
 </div>
 

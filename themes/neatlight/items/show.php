@@ -13,14 +13,14 @@
 	
 	<!-- navigation menu -->
 <div class="nav">
-<h3>IIT Campus Map</h3>
+<h1>IIT Campus Map</h1>
 <?php echo public_nav_main(); ?>
 </div> 
 
 </div>
 <div id="primary"> 
 
-    <h1><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
+    <h2><?php echo metadata('item', array('Dublin Core','Title')); ?></h2>
 	
 	<div id="item-images">
         <!-- <?php// echo files_for_item(); ?> -->
