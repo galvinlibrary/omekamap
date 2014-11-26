@@ -30,7 +30,7 @@
     <!-- CSS/JS. -->
     <?php echo head_css(false); ?>
     <?php echo head_js(false); ?>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
 
   <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>

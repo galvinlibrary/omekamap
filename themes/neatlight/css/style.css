@@ -147,7 +147,8 @@ line-height: 1.17em;
 -webkit-margin-start: 0px;
 -webkit-margin-end: 0px;
 font-weight: 500;
-margin: none;
+margin-top: 0;
+margin-bottom: 0;
 }
 
 a {
@@ -166,7 +167,23 @@ z-index: 9999;
 -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 box-shadow: 0 3px 8px rgba(0, 0, 0, .25); */
 width: 100%;
+max-height: 50px;
 padding-bottom: 5px;
+}
+
+.nav img {
+display: inline-block;
+float: right;
+margin-top: 12px;
+margin-right: 10px;
+}
+
+.nav2 img,
+.welcome img{
+display: inline-block;
+float: right;
+margin-right: -10px;
+margin-bottom: -10px;
 }
 
 .nav h1 {
@@ -196,6 +213,93 @@ padding: 0px 8px;
 
 .nav li  {
 
+}
+/* MK edits for jQuery test*/
+.nav2{
+background-color: #426f6f;
+position: absolute;
+top: 15%;
+left: 10%;
+right: auto;
+z-index: 9999;
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25); 
+width: 80%;
+max-height: 80%;
+padding-bottom: 5px;
+display: none;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+    
+    
+}
+
+.nav2 h1 {
+display: inline;
+color: white;
+padding: 0px 12px;
+font-size: 1.8em;
+margin: 0px;
+    font-weight: 400;
+}
+.nav2 a {
+color: white;
+font-size: 1.25em;
+    font-weight: 400;
+}
+
+.nav2 ul{
+padding: 10px 40px 5px 5px;
+margin: 0px;
+float: right;
+}
+
+.nav2 li {
+display: inline;
+padding: 0px 8px;
+}
+
+.nav2 li  {
+
+}
+
+.nav2 p {
+color: white;
+padding:0px 12px;
+font-size:1em;
+}
+
+/* end MK edits for jQuery test*/
+
+.welcome {
+    position: absolute;
+    top: 3.5em;
+    right: 1.5em;
+    background-color: #426f6f;
+    max-width: 400px;
+    z-index: 9999;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25); 
+    max-height: 25%;
+}
+
+.welcome p {
+color: white;
+padding:0px 12px;
+font-size:1em;
+}
+
+.arrow img {
+display: inline-block;
+float: right;
+width: 30px;  
+    margin-top: -8px;
 }
 
 /*Changing Selection Color for most elements on the site*/
@@ -312,7 +416,7 @@ height: 50%;
 left: 45%;
 top: 1;
 width: 10px;
-background-color: #00CC00;
+background-color: #426f6f;
 border: none;
 } 
 
@@ -323,7 +427,7 @@ width: 0;
 height: 0;
 border-left: 5px solid transparent;
 border-right: 5px solid transparent;
-border-top: 10px solid #00CC00;
+border-top: 10px solid #426f6f;
 position: absolute;
 left: 45%; 
 top: 50%;
@@ -412,6 +516,8 @@ width: initial;
 
 body.items.browse #colophon {
 padding-right : 40px;
+display: block;
+clear: both;
 }
 
 #colophon img {
@@ -550,6 +656,7 @@ margin-bottom: 10px;
 body.items.browse .hentry {
 max-width: 29%;
 min-width: 400px;
+height: 150px;
 display: inline;
 float: left;
 }
@@ -591,6 +698,13 @@ top: 54px !important;
 top: 55px;
 }
 
+.simple-page p,
+body.items.show p,
+body.files.show p {
+ max-width: 75%;   
+}
+
+
 /*AS edits for mobile screens*/
 @media screen and (max-width: 37.5em) {
 
@@ -602,33 +716,79 @@ top: 0;
 left: 0;
 right: initial;
 padding-top: 5px;
+    max-height: 100px;
+}
+    
+.nav2 {
+min-width: 80%;
+position: absolute;
+top: 5%;
+left: 10%;
+right: initial;
+padding-top: 5px;
+max-height: 90%;
 }
 
-.simple-page .nav {
-min-width: 100%;
-position: relative;
+.simple-page .nav,
+.simple-page .nav2 {
+width: 100%;
+position: absolute;
 top: 0;
 left: 0;
 right: initial;
 padding-top: 5px;
 }
 
-.nav h3 {
+.nav h1,
+.nav2 h1 {
 color: white;
-padding: 10px 12px;
-font-size: 1.15em;
+padding: 0px 11px;
+font-size: 1.2em;
 display: inline;
+    float:left;
 }
 
-.nav a {
+.nav a,
+.nav2 a {
 color: white;
 font-size: 1em;
+}
+
+.nav img,
+.nav2 img,
+.welcome img {
+display: inline-block;
+float: right;
+margin-top: 5 px;
+height: 20px;
+width: 20px;
+}
+    
+.arrow img {
+display: inline-block;
+float: right;
+height: 100%; 
+    margin-right: 3px;
+    margin-top: 3px;
+}
+    
+.nav ul,
+.nav2 ul{
+padding: 5px 5px 5px 0px;
+margin: 0px;
+float: left;
+clear:left;
+}
+    
+.nav2 p {
+ clear: both;   
 }
 
 li {
 list-style-type: none;
 display: inline;
-margin-left: 5px;
+margin-left: 2px;
+    padding: 0px 6px;
 }
 
 
@@ -637,6 +797,7 @@ max-width: 22.5em;
 min-width: 21em;
 display: inline;
 float: left;
+    height: 115px;
 }
 
 #colophon img {
@@ -650,9 +811,38 @@ right: 0px;
 bottom: 0px;
 height: 60px;
 }
+    
+#OpenLayers_Control_PanZoom_2 {
+display: none;
+}
 
+.olControlLayerSwitcher .maximizeDiv, .olControlLayerSwitcher .minimizeDiv {
+display: none;
+}
+    
+#item-images img {
+ max-width: 25%;   
+}
+    
 img {
 max-width: 100%;
+}
+    
+.simple-page p,
+body.items.show p,
+body.files.show p {
+ max-width: 100%;   
+}
+    
+.bubble.static.bound,
+.bubble.static.selected {
+ top: 4.5em;   
+}
+
+.welcome {
+ max-width: 55%;   
+max-height: 50%;
+right:.6em;
 }
 
 } /* end mobile edits */

@@ -12,10 +12,13 @@
     </div> -->
 	
 	<!-- navigation menu -->
+
 <div class="nav">
 <h1>IIT Campus Map</h1>
 <?php echo public_nav_main(); ?>
 </div> 
+
+
 
 </div>
 <div id="primary"> 
@@ -30,18 +33,19 @@
    </div>
 
 <!-- display of specific fields, no labels, with checks for existence of values to avoid extra line breaks if element doesn't exist -->
+    <p>
 <?php if (metadata('item', array('Dublin Core', 'Creator')) !=NULL): ?>
-	<br>
-	<?php echo metadata('item', array('Dublin Core', 'Creator')); ?> 
+        <br>
+	<?php echo metadata('item', array('Dublin Core', 'Creator')); ?>
 <?php endif; ?>
 
 <?php if (metadata('item', array('Dublin Core', 'Date')) !=NULL): ?>
-	<br>
+        <br>
 	<?php echo metadata('item', array('Dublin Core', 'Date')); ?>
 <?php endif; ?>
 
 <?php if (metadata('item', array('Dublin Core', 'Coverage')) !=NULL): ?>
-	<br>
+        <br>
 	<?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
 <?php endif; ?>
 <br><br>
@@ -56,7 +60,7 @@
 <?php $URL = metadata('item', array('Item Type Metadata', 'URL')); ?>
 <?php echo "<a href='$URL' target='_blank'>See this location on Google Maps →</a>"; ?>
 <?php endif; ?>
-
+</p>
 
 
 

@@ -20,9 +20,63 @@
 
 <!-- navigation menu -->
 <div class="nav">
+<img alt="Plus Sign" title="Maximize this Div" width=25px height=25px id="navx" src="<?php echo img('info.gif');?>"/>
 <h1><?php echo nl_getExhibitField('title'); ?></h1>
 <?php echo public_nav_main(); ?>
+
+
 </div> 
+
+<script>
+$(document).ready(function(){
+  $(".nav").on('click', function(e) { 
+   if( e.target !== $("#navx")[0]) 
+       return;
+	$(".nav2").fadeIn();
+	$(".welcome").fadeOut();
+  });
+});
+
+</script>
+
+<div class="welcome">
+    <div class="arrow">
+    <img  alt="Arrow" title="arrow" src="<?php echo img('arrowred.svg');?>"/>
+    </div>
+    <p>Welcome to the interactive IIT campus map. Click the i in the upper right corner of the screen to learn more about the map and how to use it. </p>
+
+<img alt="Minus Sign" title="Minimize this Div" width=25px height=25px src="<?php echo img('x.gif');?>"/>
+</div>
+
+<div class="nav2">
+<p><?php echo nl_getExhibitField('narrative'); ?></p>
+<img alt="Minus Sign" title="Minimize this Div" id="nav2x" width=25px height=25px src="<?php echo img('x.gif');?>"/>
+</div> 
+
+<script>
+$(document).ready(function(){
+  $(".welcome").click(function(){
+    $(this).fadeOut();
+  });
+});
+$(document).ready(function(){
+  $(".nav2").on('click', function(e) { 
+   if( e.target !== $("#nav2x")[0]) 
+       return;
+	$(".nav2").fadeOut();
+  });
+});
+$(document).ready(function(){
+  $("#OpenLayers_Map_4_OpenLayers_ViewPort").click(function(){
+    $(".nav2").fadeOut();
+  });
+});
+$(document).ready(function(){
+  $("#OpenLayers_Map_4_OpenLayers_ViewPort").click(function(){
+    $(".welcome").fadeOut();
+  });
+});
+</script>
 
 <!-- Exhibit -->
 

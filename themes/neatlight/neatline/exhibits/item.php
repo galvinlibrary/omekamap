@@ -52,4 +52,4 @@
 
 <!-- Link. -->
 
-<?php echo link_to(get_current_record('item'), 'show', 'More images and info'); ?>
+<?php echo link_to(get_current_record('item'), 'show', 'See more images and information'); ?>
