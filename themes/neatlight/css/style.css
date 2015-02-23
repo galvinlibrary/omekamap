@@ -130,7 +130,7 @@ body.simple-page {
 overflow-y: scroll;
 }
 
-#primary h1 {
+h1 {
 font-family:"Roboto Condensed";
 }
 
@@ -178,14 +178,6 @@ margin-top: 12px;
 margin-right: 10px;
 }
 
-.nav2 img,
-.welcome img{
-display: inline-block;
-float: right;
-margin-right: -10px;
-margin-bottom: -10px;
-}
-
 .nav h1 {
 display: inline;
 color: white;
@@ -215,8 +207,8 @@ padding: 0px 8px;
 
 }
 /* MK edits for jQuery test*/
-.nav2{
-background-color: #426f6f;
+.help1{
+background-color: #4C8DCF;
 position: absolute;
 top: 15%;
 left: 10%;
@@ -232,11 +224,10 @@ display: none;
 border-radius: 10px;
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
-    
-    
+cursor: url(/themes/neatlight/images/close.png), auto;     
 }
 
-.nav2 h1 {
+.help1 h1 {
 display: inline;
 color: white;
 padding: 0px 12px;
@@ -244,32 +235,23 @@ font-size: 1.8em;
 margin: 0px;
     font-weight: 400;
 }
-.nav2 a {
+.help1 a {
 color: white;
 font-size: 1.25em;
     font-weight: 400;
 }
 
-.nav2 ul{
+.help1 ul{
 padding: 10px 40px 5px 5px;
 margin: 0px;
 float: right;
 }
 
-.nav2 li {
+.help1 li {
 display: inline;
 padding: 0px 8px;
 }
 
-.nav2 li  {
-
-}
-
-.nav2 p {
-color: white;
-padding:0px 12px;
-font-size:1em;
-}
 
 /* end MK edits for jQuery test*/
 
@@ -277,8 +259,8 @@ font-size:1em;
     position: absolute;
     top: 3.5em;
     right: 1.5em;
-    background-color: #426f6f;
-    max-width: 400px;
+    background-color: #4C8DCF;
+    max-width: 25%;
     z-index: 9999;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -287,8 +269,37 @@ font-size:1em;
     -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     box-shadow: 0 3px 8px rgba(0, 0, 0, .25); 
     max-height: 25%;
+    display: none;
 }
 
+.help2{
+background-color: #4C8DCF;
+position: absolute;
+bottom: 10px;
+margin-left: 10px;
+right: 10px;
+z-index: 9999;
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25); 
+min-width: 50%;
+min-height: 120px;
+padding-bottom: 5px;
+display: none;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+cursor: url(/themes/neatlight/images/close.png), auto;   
+}
+
+.help2 img {
+    max-height: 100px;
+    float:right;
+    margin: auto 10px 10px 10px;
+}
+
+.help1 p,
+.help2 p,
 .welcome p {
 color: white;
 padding:0px 12px;
@@ -299,7 +310,8 @@ font-size:1em;
 display: inline-block;
 float: right;
 width: 30px;  
-    margin-top: -8px;
+margin-top: 20px;
+    margin-right: 5px;
 }
 
 /*Changing Selection Color for most elements on the site*/
@@ -371,6 +383,17 @@ z-index: 500;
 box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
 
+.circle.static.bound,
+.circle.static.selected {
+    max-height: 75%;
+    width: 50%;
+    max-width: 400px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: red;
+}
+
 
 .bubble.static p {
 margin-top: 1em;
@@ -400,6 +423,11 @@ display: inline;
 max-width: 40%;
 }
 
+#item-images p{
+ font-size: 12px;
+    margin-top: 5px;
+}
+
 /* Changing thumbnail size pop-up to allow side-by-side display*/
 .thumb  {
 max-width: 40% !important;
@@ -409,47 +437,58 @@ max-width: 40% !important;
 #simile:before {
 content: '';
 /*border-left: 3px dashed #FF0000;*/
-opacity: .7;
 z-index: 999;
 position: absolute;
 height: 50%;
-left: 45%;
+left: 49%;
 top: 1;
 width: 10px;
-background-color: #426f6f;
+background-color: #4C8DCF;
 border: none;
 } 
 
 #simile:after {
 content: '';
-opacity: .7;
+opacity: 1;
 width: 0;
 height: 0;
 border-left: 5px solid transparent;
 border-right: 5px solid transparent;
-border-top: 10px solid #426f6f;
+border-top: 10px solid #4C8DCF;
 position: absolute;
-left: 45%; 
+left: 49%; 
 top: 50%;
-
 }
 
 /*Changing background color of timeline */
 #simile .timeline-ether-bg {
-    background-color: #F5F5F5; 
+    background-color: #F5F5F5;   
 }
 
 /* Positioning and Styling Simile Timeline */
-#neatline #simile {
+#neatline #simile,
+#neatline.Waypoints.Simile #simile{
 height: 100px;
 width: 40%;
 bottom: 10px;
 right: 10px;
+    left:auto;
 opacity: 1;
 -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 z-index: 998;
+border-bottom: 5px solid black;
+/*cursor: url(/themes/neatlight/images/mousescroll.png), grab;*/
+cursor:url(/themes/neatlight/images/grab.ico); cursor: -webkit-grab; cursor:-moz-grab !important; cursor: grab;
+}
+
+#neatline #simile:active {
+cursor: -webkit-grabbing; cursor:-moz-grabbing; cursor: grabbing;
+}
+
+.timeline-band-layer-inner:active {
+    cursor:url(/themes/neatlight/images/grabbing.ico); cursor: -webkit-grabbing; cursor:-moz-grabbing !important; cursor: grabbing; 
 }
 
 /*Colophon Styling and Positioning*/
@@ -498,6 +537,68 @@ padding-right: 20px;
 body.items.browse {
 padding-left: 20px;
 padding-right: 20px;
+}
+
+ #neatline.Waypoints.Simile #waypoints {
+    background-color: #cf4c4c;
+    position: absolute;
+    left: 10px;
+    height: auto;
+    width:  200px;
+    bottom: 15px;
+    right: auto;
+    top: auto;
+    border-radius: 10px;
+    opacity: 1;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    
+}
+
+#waypoints a.title {
+    padding: .5em 1em;
+    display: list-item;
+    list-style: none;
+    cursor: default;
+    line-height: 1.4em;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+}
+
+#waypoints a.title.highlighted {
+    background-color: inherit;
+    color: #fff;
+}
+
+#waypoints a.title.selected {
+    background-color: inherit;
+    color: #cf4c4c;
+    color: #fff;
+}
+
+#waypoints a.body,
+#waypoints a.body.hover {
+    padding: 0 1em;
+    display: list-item;
+    list-style: none;
+    cursor: default;
+    line-height: 1em;
+    font-weight: 300;
+    color: #fff;
+    font-size: .7em;
+    text-decoration: none;
+}
+
+#waypoints p {
+ margin-top: 0;   
+}
+
+#waypoints strong {
+ font-weight: 500;   
 }
 
 #header{
@@ -640,9 +741,9 @@ body.items.show #search-container input[type=submit] {
 
   }
   
-body.items.show #search-container input[type=submit]:hover, #search-container input[type=submit]:focus, #search-container input[type=submit]:active {
-    outline: none;
-}
+/*body.items.show #search-container input[type=submit]:hover, #search-container input[type=submit]:focus, #search-container input[type=submit]:active {
+    outline: 1px black;
+}*/
 
 body.items.browse .hentry img {
 max-height: 100px;
@@ -685,10 +786,24 @@ body.neatline.show div.exhibit{
 /*float:left;
 width:1px;*/
 /*width:75%; */
-width: 100%; /*AS experiment with full screen view */
+width: 100%; 
 /*position: relative;*/
 /*position: absolute;*/
 }
+
+#darken {
+background: #000000;
+opacity: .7;
+height: 100%;
+position:absolute;
+width: 100%;
+top:0;
+left:0;
+z-index: 10;
+display: none;
+cursor: url(/themes/neatlight/images/close.png), auto;
+}
+
 
 #OpenLayers_Control_PanZoom_2 {
 top: 54px !important;
@@ -703,6 +818,10 @@ body.items.show p,
 body.files.show p {
  max-width: 75%;   
 }
+
+/*input:focus, select:focus, textarea:focus, img:focus {
+    outline-color: black;
+}*/
 
 
 /*AS edits for mobile screens*/
@@ -719,18 +838,29 @@ padding-top: 5px;
     max-height: 100px;
 }
     
-.nav2 {
+.help1 {
 min-width: 80%;
 position: absolute;
 top: 5%;
 left: 10%;
 right: initial;
 padding-top: 5px;
-max-height: 90%;
+max-height: 70%;
+margin-bottom: 10px;
 }
 
+.help2 {
+    bottom: 5px;
+    max-height: 25%;
+}
+    
+.help2 img {
+    margin: auto 10px;   
+    max-width: 95%;
+}
+    
 .simple-page .nav,
-.simple-page .nav2 {
+.simple-page .help1 {
 width: 100%;
 position: absolute;
 top: 0;
@@ -740,7 +870,7 @@ padding-top: 5px;
 }
 
 .nav h1,
-.nav2 h1 {
+.help1 h1 {
 color: white;
 padding: 0px 11px;
 font-size: 1.2em;
@@ -749,13 +879,13 @@ display: inline;
 }
 
 .nav a,
-.nav2 a {
+.help1 a {
 color: white;
 font-size: 1em;
 }
 
 .nav img,
-.nav2 img,
+.help1 img,
 .welcome img {
 display: inline-block;
 float: right;
@@ -773,14 +903,14 @@ height: 100%;
 }
     
 .nav ul,
-.nav2 ul{
+.help1 ul{
 padding: 5px 5px 5px 0px;
 margin: 0px;
 float: left;
 clear:left;
 }
     
-.nav2 p {
+.help1 p {
  clear: both;   
 }
 
@@ -807,7 +937,8 @@ max-width: 90%;
 
 #neatline #simile {
 width: 100% !important;
-right: 0px;
+right: 0 !important;
+left: 0 !important;
 bottom: 0px;
 height: 60px;
 }
@@ -840,9 +971,14 @@ body.files.show p {
 }
 
 .welcome {
- max-width: 55%;   
+max-width: 75%;   
 max-height: 50%;
 right:.6em;
+    display: none;
 }
-
-} /* end mobile edits */
+    
+     #neatline.Waypoints.Simile #waypoints {
+         display: none;
+     }
+     
+    /* end mobile edits */

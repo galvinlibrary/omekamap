@@ -42,9 +42,11 @@ set_current_record('item', $item);
 	<br>
 	<?php echo metadata('file', array('Dublin Core', 'Rights')); ?>
 <?php endif; ?>
-<br>
     <br>
-<hr />
+    <br>
+    
+<?php echo link_to_item("← Back"); ?>
+    <hr />
 
 <div id="colophon">
  <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>

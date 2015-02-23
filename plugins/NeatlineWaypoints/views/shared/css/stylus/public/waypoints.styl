@@ -1,0 +1,50 @@
+
+/* vim: set expandtab tabstop=2 shiftwidth=2 softtabstop=2 cc=80; */
+
+/**
+ * @package     omeka
+ * @subpackage  neatline-Waypoints
+ * @copyright   2012 Rector and Board of Visitors, University of Virginia
+ * @license     http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+
+
+#waypoints
+  background white
+  font-size 1.4em
+  border-radius 2px
+  overflow-y auto
+  color black
+
+  ul
+    margin 0
+    padding 0
+
+  a.title
+    padding 0.5em 1em
+    display list-item
+    list-style none
+    cursor pointer
+    line-height 1.4em
+    font-weight 300
+
+    &:hover
+      text-decoration none
+
+    &.highlighted
+      background lighten(#08c, 90%)
+
+    &.selected
+      background #08c
+      color white
+
+
+#neatline
+  #waypoints
+    max-width 300px
+    max-height 80%
+    right 40px
+    top 40px
+
+    &.empty
+      display none

@@ -3,7 +3,6 @@
  * Custom php edits, embedded within comments -- see individual comments describing changes made
  * All surrounding code/comments retained as needed for functioning of custom php, unnecessary code/comments deleted, can be found in original file 
  */
-
  /** Edit #1 (from application/views/helpers/FileMarkup.php)
    * Edits likeToFile function to eliminate 'Undefined Function' error (see comment, line 67)
    AS
@@ -63,8 +62,6 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
             'imgAttributes' => array()
             ),
         );
-
-
     /**
      * AS removed ['linkAttributes'] in line 77
 	 * line 77 (line 390 in original FileMarkup.php originally read as $html = link_to_file_show((array)$options['linkAttributes'],
@@ -75,7 +72,6 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
             $fileTitle = strip_formatting(metadata($file, array('Dublin Core', 'Title')));
             $html = $fileTitle ? $fileTitle : metadata($file, 'Original Filename');
         }
-
         if ($options['linkToMetadata']) {
             $html = link_to_file_show((array)$options,
                   $html, $file);
@@ -88,7 +84,6 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
             } else {
                 $derivative = 'original';
             }
-
             // Wrap in a link that will download the file directly.
             $defaultLinkAttributes = array(
                 'class'=>'download-file', 
@@ -312,7 +307,6 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
         
         return $html;
     }
-
     /**
      * Get the name of a fallback image to use for this file.
      *
@@ -328,15 +322,12 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
         if (isset(self::$_fallbackImages[$mimeType])) {
             return self::$_fallbackImages[$mimeType];
         }
-
         $mimePrefix = substr($mimeType, 0, strpos($mimeType, '/'));
         if (isset(self::$_fallbackImages[$mimePrefix])) {
             return self::$_fallbackImages[$mimePrefix];
         }
-
         return self::GENERIC_FALLBACK_IMAGE;
     }
-
     /**
      * Get a string key to represent a given callback.
      *

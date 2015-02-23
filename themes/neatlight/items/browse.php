@@ -58,7 +58,7 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 	</div>
 	
 	 <div class="item-meta">
-	<?php echo link_to_item('Item Record', array(), 'show'); ?>
+	<?php echo link_to_item('More images and information', array(), 'show'); ?>
 		</div>
 <br>
     <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
