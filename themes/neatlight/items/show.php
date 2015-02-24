@@ -28,7 +28,7 @@
 	<div id="item-images">
         <!-- <?php// echo files_for_item(); ?> -->
 		<?php echo item_image_gallery($attrs = array(), $imageType = 'square_thumbnail', $filesShow = true, $item = null); ?> 
-		
+		<p>Click on an image to see a larger version</p>
 
    </div>
 
@@ -50,6 +50,12 @@
 <?php endif; ?>
 <br><br>
 <?php echo metadata('item', array('Dublin Core', 'Description')); ?>
+<br>
+<?php if (metadata('item', array('Dublin Core', 'Alternative Title')) !=NULL): ?>
+        <br>
+        <?php echo "Formerly/Also Known As:" ; ?>
+	<?php echo metadata('item', array('Dublin Core', 'Alternative Title')); ?>
+<?php endif; ?>
 <br><br>
 <?php if (metadata('item', array('Item Type Metadata', 'Local URL')) !=NULL): ?>
 	<?php $LocalURL = metadata('item', array('Item Type Metadata', 'Local URL')); ?>
