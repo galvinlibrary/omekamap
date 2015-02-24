@@ -198,7 +198,7 @@ SQL
     {
         return array_merge($presenters, array(
             'None'              => 'None',
-            'Static Bubble'     => 'StaticBubble'
+            'Static Bubble'     => 'StaticBubble',
         ));
     }
 

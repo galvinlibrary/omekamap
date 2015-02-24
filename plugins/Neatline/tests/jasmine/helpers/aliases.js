@@ -6,7 +6,6 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0.html
  */
 
-
 var NL = (function(NL) {
 
 
@@ -16,7 +15,7 @@ var NL = (function(NL) {
   NL.aliasNeatline = function() {
     this.v = {
       map:      Neatline.Map.__controller.view,
-      bubble:   Neatline.Presenter.StaticBubble.__controller.view
+      bubble:   Neatline.Presenter.StaticBubble.__controller.view,
     };
   };
 
