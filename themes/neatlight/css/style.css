@@ -361,8 +361,8 @@ display: none;
 
 
 /*Custom pop-up styling and positioning -- see original design above*/
-.bubble.static.bound,
-.bubble.static.selected {
+#static-bubble,
+#static-bubble.selected {
 overflow-y: auto;
 position: absolute;
 background: #f5f5f5;
@@ -378,6 +378,7 @@ top: 4em;
 opacity: 1;
 font-size: 1em;
 z-index: 500;
+    opacity: 1;
 -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
@@ -394,22 +395,24 @@ box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     background-color: red;
 }
 
-
+#static-bubble p,
 .bubble.static p {
 margin-top: 1em;
 margin-bottom: 0;
 }
 
-.bubble.static.selected hr {
-display: none;
+#static-bubble hr,
+#static-bubble.selected hr {
+display: none !important;
 }
 
-.bubble.static.selected hr .content {
+#static-bubble hr .content,
+#static-bubble.selected .content hr {
 display: none;
 }
 
 /*overrides pop-up style in Neatline views file for text edits*/
-.bubble.static .title {
+#static-bubble .title {
 display: inline;
 font-size: 1.25em;
     font-weight: 400;
@@ -755,11 +758,12 @@ margin-bottom: 10px;
 }
 
 body.items.browse .hentry {
-max-width: 29%;
+max-width: 25%;
 min-width: 400px;
 height: 150px;
 display: inline;
 float: left;
+padding-right: 1em;
 }
 
 body.items.browse input[type=text] {
@@ -809,8 +813,12 @@ cursor: url(/themes/neatlight/images/close.png), auto;
 top: 54px !important;
 }
 
-.olControlLayerSwitcher .maximizeDiv, .olControlLayerSwitcher .minimizeDiv {
+.olControlLayerSwitcher .maximizeDiv,.olControlLayerSwitcher  .minimizeDiv {
 top: 55px;
+}
+
+#neatline.Waypoints.Simile .olControlLayerSwitcher {
+    right: 0;
 }
 
 .simple-page p,
