@@ -136,6 +136,7 @@ font-family:"Roboto Condensed";
 
 h2 {
     font-weight: 400;
+    display: inline-block;
 }
 
 h3 {
@@ -351,7 +352,7 @@ max-height: 75%;
 width: 50%;
 max-width: 400px;
 right: 1.5em;
-left: initial;
+left: auto;
 top: 1em;
 opacity: 1;
 font-size: 1em;
@@ -373,7 +374,7 @@ max-height: 75%;
 width: 50%;
 max-width: 400px;
 right: 1.5em;
-left: initial;
+left: auto;
 top: 4em;
 opacity: 1;
 font-size: 1em;
@@ -520,27 +521,22 @@ width: 3055px;
 
 /*Styling Item Show to Match Neatline Exhibit Style*/
 
-body.items.show {
+body.items.show,
+body.items.browse,
+body.search {
 background:#f5f5f5;
 font-family:"Roboto Condensed";
 font-size:16px;
 }
 
-body.items.browse {
-background:#f5f5f5;
-font-family:"Roboto Condensed";
-font-size:16px;
-}
 
-body.items.show {
+body.items.show,
+body.items.browse,
+body.search {
 padding-left: 20px;
 padding-right: 20px;
 } 
 
-body.items.browse {
-padding-left: 20px;
-padding-right: 20px;
-}
 
  #neatline.Waypoints.Simile #waypoints {
     background-color: #cf4c4c;
@@ -615,7 +611,7 @@ padding-right : 40px;
 
 body.items.show #colophon img {
 float: right;
-width: initial;
+width: auto;
 }
 
 body.items.browse #colophon {
@@ -626,17 +622,36 @@ clear: both;
 
 #colophon img {
 float: right;
-width: initial;
+width: auto;
 }
 
 body.items.show li {
 display: inline;
 }
 
-body.items.browse #sort-links-list li {
-list-style-type: none;
-display: inline;
-margin-left: 8px;
+#sort-links-list {
+    margin-top: 0px;
+    display: inline-block;
+    padding-left: 0;
+}
+
+#sort-links-list li {
+    list-style-type: none;
+    display: inline;
+    margin-left: 8px;
+}
+
+#tags {
+    display: inline-block;
+    float: right;
+}
+
+#tags a {
+    padding-left: 8px;
+}
+
+#tags a .current{
+    font-weight: 400;
 }
 
 body.items.browse form {
@@ -697,34 +712,46 @@ body.items.show .next {
 float: right;
 }
 
-body.items.show #search-container {
+body.items.browse #search-toggle {
+    float: right;
+    display: inline;
+    margin-top: 1.75em;
+
+    
+}
+
+body.items.browse #search-toggle::before{
+        height: 1em;
+       /* content: url(/themes/neatlight/images/search1.png);*/
+}
+
+#search-container {
 float: right;
-width: 20%;
+display: inline;
+    margin-top: 1.75em;
+}
+
+#search-container form {
 display: inline;
 }
 
-body.items.show #search-container form {
-display: inline;
-}
-
- body.items.show #search-container input {
-    margin: 0;
+#search-container input {
+     margin: 0;
+     width: 100px;
   }
-body.items.show #search-container input[type=text] {
+#search-container input[type=text] {
     color: #555;
-    width: 79%;
-    border: 1;
     padding-right: 2em;
   }
   
-body.items.show #search-container input[type=button] button {
+#search-container input[type=button] button {
 	font-family:"Roboto Condensed";
     color: #555;
     width: 100%;
-    border: initial;
+    border: auto;
   }
   
-body.items.show #search-container button {
+#search-container button {
 	font-family:"Roboto Condensed";
 	font-size: 12pt;
     color: #cf4c4c;
@@ -735,7 +762,7 @@ body.items.show #search-container button {
 	cursor: pointer;
   }
   
-body.items.show #search-container input[type=submit] {
+#search-container input[type=submit] {
 	font-family:"Roboto Condensed";
     background-color: transparent;
     line-height: 0;
@@ -743,12 +770,32 @@ body.items.show #search-container input[type=submit] {
     cursor: pointer;
 
   }
-  
+
+body.items.show #sources {  
+    display: none;
+}
+
+body.items.show .collapse,
+body.items.show .expand {
+    width: auto;
+    display: inline;
+    color: #cf4c4c;
+}
+
+.collapse:hover,
+.expand:hover {
+    cursor: pointer;
+}
+
+
+
+
 /*body.items.show #search-container input[type=submit]:hover, #search-container input[type=submit]:focus, #search-container input[type=submit]:active {
     outline: 1px black;
 }*/
 
-body.items.browse .hentry img {
+body.items.browse .hentry img,
+body.search td img {
 max-height: 100px;
 max-width: 100px;
 display: inline-block;
@@ -757,7 +804,9 @@ margin-right: 10px;
 margin-bottom: 10px;
 }
 
-body.items.browse .hentry {
+body.items.browse .hentry,
+body.search td,
+body.search tr {
 max-width: 25%;
 min-width: 400px;
 height: 150px;
@@ -766,11 +815,11 @@ float: left;
 padding-right: 1em;
 }
 
-body.items.browse input[type=text] {
+body.items.browse input[type=text],
+body.search input[type=text]{
 width: 20px;
 font-family:"Roboto Condensed";
 font-size: 11pt;
-text-align: center;
 }
 
 body.simple-page {
@@ -782,6 +831,10 @@ background-color: #f5f5f5;
 
 .simple-page img {
 float: right;
+}
+
+.body.search table {
+ width: 100%;   
 }
 
 /* MK edit - commented out float and width as they caused an error in Neatline Simile. Simile box would appear empty until window was resized. */
@@ -841,7 +894,7 @@ min-width: 100%;
 position: absolute;
 top: 0;
 left: 0;
-right: initial;
+right: auto;
 padding-top: 5px;
     max-height: 100px;
 }
@@ -851,7 +904,7 @@ min-width: 80%;
 position: absolute;
 top: 5%;
 left: 10%;
-right: initial;
+right: auto;
 padding-top: 5px;
 max-height: 70%;
 margin-bottom: 10px;
@@ -873,7 +926,7 @@ width: 100%;
 position: absolute;
 top: 0;
 left: 0;
-right: initial;
+right: auto;
 padding-top: 5px;
 }
 

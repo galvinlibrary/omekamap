@@ -1,6 +1,10 @@
 <?php queue_css_file('style'); ?>
 
-<?php $pageTitle = __('Browse Items'); echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse')); ?>
+<?php
+$pageTitle = __('Search Results') . ' ' . __('(%s total)', $total_results);
+echo head(array('title' => $pageTitle, 'bodyclass' => 'search'));
+$searchRecordTypes = get_search_record_types();
+?>
 
 <div id="header">
 	<div class="nav">
@@ -8,19 +12,18 @@
 	<?php echo public_nav_main(); ?>
 	</div> 
 </div>
+
 <div id="container">
 <div id="primary"> 
 
-<h2><?php echo $pageTitle;?> <?php echo __('(%s total)', $total_results); ?></h2>
-
+<h2><?php echo $pageTitle; ?></h2>
+    
 <div id="search-container">
     <?php echo search_form(); ?>
-    
-    </div>
-<?php //echo pagination_links(); ?>
+</div>
 
-<?php if ($total_results > 0): ?>
-
+    <?php echo search_filters(); ?>
+<?php if ($total_results): ?>
 <?php
 $sortLinks[__('Title')] = 'Dublin Core,Title';
 $sortLinks[__('Creator')] = 'Dublin Core,Creator';
@@ -37,17 +40,21 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
     </div>
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
 </div>
-
-<?php endif; ?>
-
-<?php foreach (loop('items') as $item): ?>
-<div class="item hentry">
-	<?php if (metadata('item', 'has thumbnail')): ?>
-		<div class="item-img">
-		<?php echo link_to_item(item_image('square_thumbnail')); ?>
-		</div>
-	<?php endif; ?>
-    <h3><?php echo metadata('item', array('Dublin Core', 'Title'), array()); ?></h3>
+<table id="search-results">
+    <thead>
+    </thead>
+    <tbody>
+        <?php $filter = new Zend_Filter_Word_CamelCaseToDash; ?>
+        <?php foreach (loop('search_texts') as $searchText): ?>
+        <?php $record = get_record_by_id($searchText['record_type'], $searchText['record_id']); ?>
+        <?php $recordType = $searchText['record_type']; ?>
+        <?php set_current_record($recordType, $record); ?>
+        <tr class="<?php echo strtolower($filter->filter($recordType)); ?>">
+            <td >
+                <?php if ($recordImage = record_image($recordType, 'square_thumbnail')): ?>
+                    <?php echo link_to($record, 'show', $recordImage, array('class' => 'image')); ?>
+                <?php endif; ?>
+                <h3><?php echo metadata('item', array('Dublin Core', 'Title'), array()); ?></h3>
     <div class="item-meta">
     
 	<?php if ($creator = metadata('item', array('Dublin Core', 'Creator'), array())): ?>
@@ -65,26 +72,17 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 	 <div class="item-meta">
 	<?php echo link_to_item('More images and information', array(), 'show'); ?>
 		</div>
-<br>
-    <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
-
-    </div><!-- end class="item-meta" -->
-</div><!-- end class="item hentry" -->
-<?php endforeach; ?>
-<br>
-<?php //echo pagination_links(); ?>
-
-<!-- output linking disabled -->
-<!-- <div id="outputs">
-    <span class="outputs-label"><?php// echo __('Output Formats'); ?></span>
-    <?php// echo output_format_list(false); ?>
-</div> -->
-
-<div id="colophon">
-<?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
-<hr class="content" >
-<img alt="IIT Logo" title="IIT Logo" src="<?php echo img('IIT_Logo_horiz_186_blk.gif');?>"/>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php echo pagination_links(); ?>
+<?php else: ?>
+<div id="no-results">
+    <p><?php echo __('Your query returned no results.');?></p>
 </div>
-</div>
+<?php endif; ?>
+    </div>
 <?php echo foot(); ?>
 </div>
