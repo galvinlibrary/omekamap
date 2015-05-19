@@ -19,24 +19,49 @@ set_current_record('item', $item);
 
 <div id="primary"> 
 
-    <h2><?php echo metadata('item', array('Dublin Core','Title')); ?></h2>
-	
-	<?php echo file_image('fullsize', $file = null); ?>
+    <?php echo file_image('fullsize', $file = null); ?><br>
+	<?php // echo file_markup($file, array('imageSize' => 'fullsize', 'linkToFile' => true)); ?>
 
-<!-- display of specific fields, no labels, with checks for existence of values to avoid extra line breaks if element doesn't exist -->
-<?php if (metadata('file', array('Dublin Core', 'Title')) !=NULL && metadata('file', array('Dublin Core', 'Date')) !=NULL): ?>
-	<br>
-	<?php echo rtrim(metadata('file', array('Dublin Core', 'Title'))), ", ", metadata('file', array('Dublin Core', 'Date')); ?> 
-<?php else: ?>
-	<?php echo metadata('file', array('Dublin Core', 'Title')); ?>
+<!-- file metadata with checks for existence of each field to avoid extra line breaks -->
+    
+<!-- Title -->
+<?php if (metadata('file', array('Dublin Core', 'Title')) !=NULL): ?>
+    <strong><?php echo metadata('file', array('Dublin Core', 'Title')); ?></strong>
+    </br>
 <?php endif; ?>
 
+<!-- Photographer -->
 <?php if (metadata('file', array('Dublin Core', 'Creator')) !=NULL): ?>
-    <?php echo rtrim("("), rtrim(metadata('file', array('Dublin Core', 'Creator'))), ")"; ?>
+    <?php // echo rtrim("("), rtrim(metadata('file', array('Dublin Core', 'Creator'))), ")"; ?>
+    <?php echo "<strong>Photographer:</strong> ", metadata('file', array('Dublin Core', 'Creator')); ?>
+    <br>
 <?php elseif (metadata('file', array('Dublin Core', 'Creator')) ==NULL): ?>
-    <?php echo "(photographer unknown)"; ?>
+    <?php echo "<strong>Photographer:</strong> photographer unknown"; ?>
+    <br>
 <?php endif; ?>
 
+<!-- Date -->
+<?php if (metadata('file', array('Dublin Core', 'Date')) !=NULL): ?>
+    <?php echo "<strong>Date:</strong> ", metadata('file', array('Dublin Core', 'Date')); ?>
+    <br>
+<?php elseif (metadata('file', array('Dublin Core', 'Date')) ==NULL): ?>
+    <?php echo "date unknown"; ?>
+    <br>
+<?php endif; ?>
+
+<!-- Source -->
+<?php if (metadata('file', array('Dublin Core', 'Format')) !=NULL): ?>
+    <?php echo "<strong>Source:</strong> ", metadata('file', array('Dublin Core', 'Format')); ?>
+    <br>
+<?php elseif (metadata('file', array('Dublin Core', 'Format')) ==NULL): ?>
+<?php endif; ?>
+
+<!-- Archival Collection -->
+<?php if (metadata('file', array('Dublin Core', 'Is Part Of')) !=NULL): ?>
+    <?php echo "<strong>Archival Collection:</strong> ", metadata('file', array('Dublin Core', 'Is Part Of')); ?>
+    <br>
+<?php elseif (metadata('file', array('Dublin Core', 'Is Part Of')) ==NULL): ?>
+<?php endif; ?>
 
 <?php if (metadata('file', array('Dublin Core', 'Rights')) !=NULL): ?>
 	<br>

@@ -1,0 +1,203 @@
+
+body.items.show,
+body.items.browse,
+body.search {
+padding-left: 20px;
+padding-right: 10px;
+} 
+
+h2 {
+    margin-bottom: .25em;
+    display: block;
+    clear: both;
+    
+}
+
+.nav {
+min-width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+right: auto;
+padding-top: 5px;
+    max-height: 100px;
+}
+    
+.help1 {
+min-width: 80%;
+position: absolute;
+top: 5%;
+left: 10%;
+right: auto;
+padding-top: 5px;
+max-height: 70%;
+margin-bottom: 10px;
+}
+
+.help2 {
+    bottom: 5px;
+    max-height: 25%;
+}
+    
+.help2 img {
+    margin: auto 10px;   
+    max-width: 95%;
+}
+    
+.simple-page .nav,
+.simple-page .help1 {
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+right: auto;
+padding-top: 5px;
+}
+
+.nav h1,
+.help1 h1 {
+color: white;
+padding: 0px 11px;
+font-size: 1.2em;
+display: inline;
+    float:left;
+}
+
+.nav a,
+.help1 a {
+color: white;
+font-size: 1em;
+}
+
+.nav img,
+.help1 img,
+.welcome img {
+display: inline-block;
+float: right;
+margin-top: 5 px;
+height: 20px;
+width: 20px;
+}
+    
+.arrow img {
+display: inline-block;
+float: right;
+height: 100%; 
+    margin-right: 3px;
+    margin-top: 3px;
+}
+    
+.nav ul,
+.help1 ul{
+padding: 5px 5px 5px 0px;
+margin: 0px;
+float: left;
+clear:left;
+}
+    
+.help1 p {
+ clear: both;   
+}
+
+li {
+list-style-type: none;
+display: inline;
+margin-left: 2px;
+    padding: 0px 6px;
+}
+
+body.items.browse .hentry,
+body.search td,
+body.search tr {
+width: 100%;
+max-width: initial;
+min-width: initial;
+height: 150px;
+display: inline;
+float: left;
+padding-right: 1em;
+}
+
+body.items.browse .hentry {
+/*max-width: 22.5em;
+min-width: 21em;*/
+    /*width: 20em;*/
+display: inline;
+float: left;
+min-height: 115px;
+    height: auto;
+}
+
+#colophon img {
+display: block;
+max-width: 90%;
+}
+
+#neatline #simile, 
+#neatline.Waypoints.Simile #simile {
+width: 100% !important;
+right: 0 !important;
+left: 0 !important;
+bottom: 0px;
+}
+
+#static-bubble .smaller_text, 
+.bubble.static .smaller_text {
+ display: none;   
+}
+    
+#OpenLayers_Control_PanZoom_2 {
+display: none;
+}
+
+.olControlLayerSwitcher .maximizeDiv, .olControlLayerSwitcher .minimizeDiv {
+display: none;
+}
+    
+#item-images img {
+ max-width: 25%;   
+}
+    
+img {
+max-width: 100%;
+}
+    
+.simple-page p,
+body.items.show p,
+body.files.show p {
+ max-width: 100%;   
+}
+    
+.bubble.static.bound,
+.bubble.static.selected,
+#static-bubble,
+#static-bubble.selected {
+    top: 4.5em; 
+    right: 1em;
+    max-height: 65%;
+    width: 65%;
+}
+
+.welcome {
+max-width: 75%;   
+max-height: 50%;
+right:.6em;
+    display: none;
+}
+    
+     #neatline.Waypoints.Simile #waypoints {
+         display: none;
+     }
+    
+    #tags {
+    display: inline-block;
+    float: left;
+    margin-bottom: 1em;
+	width: 100%;
+}
+
+    
+
+   
+ 
+

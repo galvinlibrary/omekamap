@@ -1,6 +1,21 @@
 <?php queue_css_file('style'); ?>
 
-<?php $pageTitle = __('Browse Items'); echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse')); ?>
+<?php $pageTitle = __('Browse Buildings'); echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse')); ?>
+
+<script>
+$.fx.speeds._default = 250
+$(document).ready(function(){
+    $("#search-container").hide();
+    $("#search-toggle").on('click', function() { 
+	$("#search-container").fadeIn();
+    $("#search-toggle").hide();
+  });
+    $("#collapse-search").on('click', function() { 
+	$("#search-container").hide();
+    $("#search-toggle").fadeIn();
+  });
+});
+</script>
 
 <div id="header">
 	<div class="nav">
@@ -11,12 +26,16 @@
 <div id="container">
 <div id="primary"> 
 
-<h2><?php echo $pageTitle;?> <?php echo __('(%s total)', $total_results); ?></h2>
-
-<div id="search-container">
-    <?php echo search_form(); ?>
-    
+<div id=search-toggle> 
+    <i class="fa fa-search"></i>
     </div>
+<div id="search-container">
+    <div id="collapse-search"><i class="fa fa-times"></i></div>
+    <?php echo search_form(array()); ?>
+</div>    
+    
+<h2><?php echo $pageTitle;?> <?php // echo __('(%s total)', $total_results); ?></h2>
+
 <?php //echo pagination_links(); ?>
 
 <?php if ($total_results > 0): ?>
@@ -28,6 +47,7 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 ?>
 <div id="sort-links">
     
+    <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
     <div id="tags">
         <span class="sort-label"><?php echo __('Filter by: '); ?>
         </span>
@@ -35,19 +55,22 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
         <?php echo "<a href=/items/browse?collection=1&sort_field=Dublin+Core%2CTitle&sort_dir=a>all  </a>"; ?> 
         <?php echo tag_string($tags); ?>
     </div>
-    <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
+    
 </div>
 
 <?php endif; ?>
 
 <?php foreach (loop('items') as $item): ?>
 <div class="item hentry">
-	<?php if (metadata('item', 'has thumbnail')): ?>
-		<div class="item-img">
+	<div class="item-img">
+    <?php if (metadata('item', 'has thumbnail')): ?>
 		<?php echo link_to_item(item_image('square_thumbnail')); ?>
-		</div>
+        <?php else: ?>
+            <img alt="No image available" src="<?php echo img('noimage.gif');?>"/>
 	<?php endif; ?>
-    <h3><?php echo metadata('item', array('Dublin Core', 'Title'), array()); ?></h3>
+    </div>
+    <h3><?php // echo metadata('item', array('Dublin Core', 'Title'), array()); ?></h3>
+    <h3><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array(), 'show'); ?></h3>
     <div class="item-meta">
     
 	<?php if ($creator = metadata('item', array('Dublin Core', 'Creator'), array())): ?>

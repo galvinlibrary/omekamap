@@ -12,9 +12,11 @@
 <!DOCTYPE html>
 <html lang="<?php echo get_html_lang(); ?>">
 
+
   <head>
 
     <meta charset="utf-8">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <title>
       <?php echo option('site_title');
@@ -30,7 +32,8 @@
     <!-- CSS/JS. -->
     <?php echo head_css(false); ?>
     <?php echo head_js(false); ?>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/themes/neatlight/javascripts/jquery.cookie.js"></script>
   </head>
 
   <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>

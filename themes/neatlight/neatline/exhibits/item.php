@@ -17,10 +17,10 @@
   <?php //echo files_for_item(); ?>
   <?php //echo item_image_gallery(array('link'=>array('target'=>'_self')), $imageType = 'square_thumbnail', $filesShow = true); ?>
 <!-- Display first file for item automatically -->
-  <?php echo file_markup($itemFiles[0], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true)); ?>
+  <?php echo file_markup($itemFiles[0], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>false)); ?>
 <!-- checks for existence of second file and displays it if it exists -->
   <?php if (isset($itemFiles[1])): ?>
-  <?php echo file_markup($itemFiles[1], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>true)); ?>
+  <?php echo file_markup($itemFiles[1], array('imageSize'=>'square_thumbnail', 'linkToFile'=>false, 'linkToMetadata'=>false)); ?>
   <?php endif; ?>
 <?php endif; ?>
 </div>
@@ -44,12 +44,19 @@
 	<br>
 	<?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
 <?php endif; ?>
-<br><br>
-<?php //echo metadata('item', array('Dublin Core', 'Description')); ?>
 
+<?php if (metadata('item', array('Dublin Core', 'Alternative Title')) !=NULL): ?>
+    <span class="smaller_text">
+        <br><br>
+        <?php echo 'Formerly/also known as: '; ?>
+        <?php echo metadata('item', array('Dublin Core', 'Alternative Title')); ?>
+    </span>
+<?php endif; ?>
+
+<br><br>
 
 <hr />
 
 <!-- Link. -->
 
-<?php echo link_to(get_current_record('item'), 'show', 'See more images and information'); ?>
+<?php echo link_to(get_current_record('item'), 'show', 'More images and information'); ?>

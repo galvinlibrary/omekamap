@@ -27,27 +27,36 @@
 
 </div> 
 <script>
-$(document).ready(function(){
- $('.welcome').hide().delay(1000).fadeIn('slow');   
+$(document).ready(function(){  
  $('.help').hide();
 });
 </script>
 
 <script>
-$.fx.speeds._default = 250
-$(document).ready(function(){
-  $(".nav").on('click', function(e) { 
-   if( e.target !== $("#navx")[0]) 
-       return;
-	$(".help1").fadeIn(500);
-    $(".help2").fadeIn(500);
-    $('.help').show();
-    $("#darken").fadeIn();
-    $(".welcome").fadeOut();
-  });
-});
-
+    $(document).ready(function(){
+    var visited = $.cookie('visited')
+    if (visited == null) {
+        $('.welcome').hide().delay(1000).fadeIn('slow');
+    } else {
+        $('.welcome').hide();
+    }
+    $.cookie('visited', 'yes_visited', {
+    expires: 365,
+    path: '/'
+    });
+    });
 </script>
+<script>
+$(document).ready(function () {
+    $('#navx').click(function () {
+        $('#navx').text(function (i, text) {
+            return $.trim(text) == 'Hide' ? 'Show' : 'Hide'
+        });
+        $('.help1, .help2, .help, #darken').fadeToggle(500);
+    });
+});
+</script>
+
 
 <div class="welcome">
     <p>Welcome to the interactive IIT campus map. Click the ⓘ in the upper right corner of the screen to learn more about the map and how to use it. </p>

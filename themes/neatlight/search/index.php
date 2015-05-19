@@ -6,6 +6,22 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'search'));
 $searchRecordTypes = get_search_record_types();
 ?>
 
+<script>
+$.fx.speeds._default = 250
+$(document).ready(function(){
+    /*$("#search-container").hide();*/
+    $("#search-toggle").hide();
+    $("#search-toggle").on('click', function() { 
+	$("#search-container").fadeIn();
+    $("#search-toggle").hide();
+  });
+    $("#collapse-search").on('click', function() { 
+	$("#search-container").hide();
+    $("#search-toggle").fadeIn();
+  });
+});
+</script>
+
 <div id="header">
 	<div class="nav">
 	<h1>IIT Campus Map</h1>
@@ -15,13 +31,17 @@ $searchRecordTypes = get_search_record_types();
 
 <div id="container">
 <div id="primary"> 
-
-<h2><?php echo $pageTitle; ?></h2>
     
+<div id=search-toggle> 
+    <i class="fa fa-search"></i>
+    </div>
 <div id="search-container">
-    <?php echo search_form(); ?>
-</div>
+    <div id="collapse-search"><i class="fa fa-times"></i></div>
+    <?php echo search_form(array()); ?>
+</div>    
 
+    <h2><?php echo $pageTitle; ?></h2>
+    
     <?php echo search_filters(); ?>
 <?php if ($total_results): ?>
 <?php
@@ -53,8 +73,10 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
             <td >
                 <?php if ($recordImage = record_image($recordType, 'square_thumbnail')): ?>
                     <?php echo link_to($record, 'show', $recordImage, array('class' => 'image')); ?>
+                    <?php else: ?>
+                        <img alt="No image available" src="<?php echo img('noimage.gif');?>"/>
                 <?php endif; ?>
-                <h3><?php echo metadata('item', array('Dublin Core', 'Title'), array()); ?></h3>
+                <h3><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array(), 'show'); ?></h3>
     <div class="item-meta">
     
 	<?php if ($creator = metadata('item', array('Dublin Core', 'Creator'), array())): ?>
