@@ -6,3 +6,15 @@
 
 $red: #cf4c4c;
 $almost-white: #f5f5f5;
+
+@mixin border-radius($length) {
+    border-radius: $length;
+    -moz-border-radius: $length;
+    -webkit-border-radius: $length;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+      -webkit-box-shadow:$top $left $blur $color #{$inset};
+      -moz-box-shadow:$top $left $blur $color #{$inset};
+      box-shadow:$top $left $blur $color #{$inset};
+}

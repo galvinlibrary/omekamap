@@ -830,6 +830,10 @@ th {
     padding-left: 20px;
     padding-right: 20px;
     background: #f5f5f5;
+    overflow-y: scroll;
+  }
+  body p {
+    max-width: 75%;
   }
 
   .nav {
@@ -839,9 +843,9 @@ th {
     left: 0;
     right: auto;
     z-index: 9999;
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    -moz-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
     width: 100%;
     max-height: 50px;
     padding-bottom: 5px;
@@ -875,15 +879,22 @@ th {
     padding: 0px 8px;
   }
 
+  #colophon {
+    padding-right: 40px;
+    display: block;
+    clear: both;
+  }
+  #colophon img {
+    float: right;
+    max-width: initial;
+    max-height: initial;
+  }
+
   /* -- Text -- */
   body {
     font-family: "Roboto Condensed";
     font-size: 1em;
     font-weight: 300;
-  }
-
-  strong {
-    font-weight: 500;
   }
 
   .fa {
@@ -922,221 +933,40 @@ th {
     text-decoration: underline;
   }
 
-  body.items.browse h3 a, body.search h3 a {
-    color: black;
+  .fa-external-link:before {
+    color: #cf4c4c;
   }
-  body.neatline.browse {
-    font-size: 12px;
-    background: #fcfcfc;
-  }
-  body.neatline.browse div.container {
-    font-size: 1.2em;
-    margin: 3em auto;
-    width: 50%;
-  }
-  body.neatline.browse div.container div.exhibit {
-    margin: 5px 0;
-  }
-  body.neatline.browse div.container p.title {
-    font-weight: bold;
-  }
-  body.neatline.show {
-    background: #fefefe;
-  }
+
+  /* - Neatline exhibit styling - */
   body.neatline.show div.exhibit {
-    float: left;
-    width: 1px;
-    width: 75%;
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    right: auto;
+    /* Open Layers Map Controls */
   }
   body.neatline.show div.exhibit #neatline, body.neatline.show div.exhibit #neatline-map {
     height: 100%;
-    width: 100%;
   }
-  body.neatline.show div.narrative {
-    float: right;
-    overflow-y: scroll;
-    padding: 2em;
-    /*width:500px;*/
-    width: 25%;
+  body.neatline.show div.exhibit #OpenLayers_Control_PanZoom_2 {
+    top: 54px !important;
   }
-  body.neatline.show div.narrative a.back {
-    display: inline-block;
-    padding: 5px 8px;
-    margin-bottom: 1em;
-    font-size: .8em;
+  body.neatline.show div.exhibit .olControlLayerSwitcher .maximizeDiv, body.neatline.show div.exhibit .olControlLayerSwitcher .minimizeDiv {
+    top: 55px;
   }
-  body.neatline.show div.narrative a.back .arrow {
-    font-size: 13px;
-  }
-  body.neatline.show div.narrative h1.title {
-    margin: 0;
-    padding-bottom: .2em;
-    font-family: Oswald;
-    font-weight: 200;
-    border-bottom: 1px solid #e6e6e6;
-    font-size: 40px;
-  }
-  body.neatline.show div.narrative p {
-    line-height: 1.7em;
-  }
-  body.neatline.show #static-bubble div.body {
-    font-size: 17px;
-  }
-  body.neatline.show #static-bubble a.close {
-    font-size: 2em;
-    line-height: .8em;
-  }
-  body.neatline.show #static-bubble a.close:hover {
-    color: #006ebb;
-    background: none;
-  }
-  body.neatline.show #colophon {
-    border-top: 1px solid #e6e6e6;
-    font-size: 0.8em;
-  }
-  body.items {
-    overflow-y: scroll;
+  body.neatline.show div.exhibit #neatline.Waypoints.Simile .olControlLayerSwitcher {
+    right: 0;
   }
 
-  /* -- Neatline exhibit styling -- */
-  /* -- Item browse & search pages --*/
-  /* -- Item show pages --*/
-  /* -- Simple pages --*/
-  body.simple-page {
-    overflow-y: scroll;
-  }
-  body.simple-page img {
-    float: right;
-  }
-  body.simple-page p {
-    max-width: 75%;
-  }
-
-  /* MK edits for jQuery test*/
-  .help1 {
-    background-color: #4C8DCF;
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    right: auto;
-    z-index: 9999;
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    width: 80%;
-    max-height: 80%;
-    padding-bottom: 5px;
-    display: none;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    cursor: url(/themes/neatlight/images/close.png), auto;
-  }
-  .help1 h1 {
-    display: inline;
-    color: white;
-    padding: 0px 12px;
-    font-size: 1.8em;
-    margin: 0px;
-    font-weight: 400;
-  }
-  .help1 a {
-    color: white;
-    text-decoration: underline;
-  }
-  .help1 ul {
-    padding: 10px 40px 5px 5px;
-    margin: 0px;
-    float: right;
-  }
-  .help1 li {
-    display: inline;
-    padding: 0px 8px;
-  }
-
-  /* end MK edits for jQuery test*/
-  .welcome {
-    position: absolute;
-    top: 3.5em;
-    right: 1.5em;
-    background-color: #4C8DCF;
-    max-width: 25%;
-    z-index: 9999;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    max-height: 25%;
-    display: none;
-  }
-
-  .help2 {
-    background-color: #4C8DCF;
-    position: absolute;
-    bottom: 10px;
-    margin-left: 10px;
-    right: 10px;
-    z-index: 9999;
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    min-width: 50%;
-    min-height: 120px;
-    padding-bottom: 5px;
-    display: none;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    cursor: url(/themes/neatlight/images/close.png), auto;
-  }
-  .help2 img {
-    max-height: 100px;
-    float: right;
-    margin: auto 10px 10px 10px;
-  }
-
-  .help1 p, .help2 p, .welcome p {
-    color: white;
-    padding: 0px 12px;
-    font-size: 1em;
-  }
-
-  .arrow img {
-    display: inline-block;
-    float: right;
-    width: 30px;
-    margin-top: 20px;
-    margin-right: 5px;
-  }
-
-  /*Resizing narrative, adding shadow and positioning to keep shadow visible*/
-  body.neatline.show div.narrative {
-    overflow-y: auto;
-    position: absolute;
-    border-radius: 2px;
-    color: #000;
-    padding: 1em;
-    max-height: 75%;
-    width: 50%;
-    max-width: 400px;
-    right: 1.5em;
-    left: auto;
-    top: 1em;
-    opacity: 1;
-    font-size: 1em;
-    z-index: 500;
-    display: none;
-  }
-
-  /*Custom pop-up styling and positioning*/
-  #static-bubble {
+  /*Pop-up bubble styling */
+  #static-bubble.bound, #static-bubble.selected {
     overflow-y: auto;
     position: absolute;
     background: #f5f5f5;
     border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
     color: #000;
     padding: 1em;
     max-height: 75%;
@@ -1145,61 +975,16 @@ th {
     right: 1.5em;
     left: auto;
     top: 4em;
-    opacity: 1;
     font-size: 1em;
     z-index: 500;
     opacity: 1;
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    -moz-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
   }
-  #static-bubble.selected {
-    overflow-y: auto;
-    position: absolute;
-    background: #f5f5f5;
-    border-radius: 2px;
-    color: #000;
-    padding: 1em;
-    max-height: 75%;
-    width: 50%;
-    max-width: 400px;
-    right: 1.5em;
-    left: auto;
-    top: 4em;
-    opacity: 1;
-    font-size: 1em;
-    z-index: 500;
-    opacity: 1;
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-  }
-
-  /*.circle.static {
-    &.bound, &.selected {
-      max-height: 75%;
-      width: 50%;
-      max-width: 400px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: red;
-    }
-  }*/
-  #static-bubble p, .bubble.static p {
-    margin-top: 1em;
-    margin-bottom: 0;
-  }
-
-  #static-bubble .smaller_text, .bubble.static .smaller_text {
-    font-size: .9em;
-  }
-
-  #static-bubble hr, #static-bubble.selected hr {
-    display: none !important;
-  }
-  #static-bubble hr .content, #static-bubble.selected .content hr {
-    display: none;
+  #static-bubble.bound .content, #static-bubble.selected .content {
+    display: block;
+    margin-top: .5em;
   }
   #static-bubble .title {
     display: inline;
@@ -1207,23 +992,73 @@ th {
     font-weight: 400;
     line-height: 1em;
   }
-
-  /*overrides pop-up style in Neatline views file for text edits*/
-  /* tweaking thumbnail display in pop-up to allow side-by-side display */
-  #item-images div {
+  #static-bubble .smaller_text {
+    font-size: .9em;
+  }
+  #static-bubble a.close {
+    font-size: 2em;
+    line-height: .8em;
+  }
+  #static-bubble hr, #static-bubble.selected hr {
+    display: none !important;
+  }
+  #static-bubble .item-file {
     display: inline;
-    max-width: 40%;
   }
-  #item-images p {
-    font-size: 12px;
-    margin-top: 5px;
-  }
-
-  /* Changing thumbnail size pop-up to allow side-by-side display*/
-  .thumb {
+  #static-bubble .item-file .thumb {
     max-width: 40% !important;
+    display: inline;
   }
 
+  /* --- Simile Timeline ---  */
+  /* Positioning and Styling Simile Timeline */
+  #neatline #simile, #neatline.Waypoints.Simile #simile {
+    height: 100px;
+    width: 40%;
+    bottom: 10px;
+    right: 10px;
+    left: auto;
+    opacity: 1;
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    -moz-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    z-index: 998;
+    border-bottom: 5px solid black;
+    cursor: url(/themes/neatlight/images/grab.ico);
+    cursor: -webkit-grab;
+    cursor: -moz-grab !important;
+    cursor: grab;
+  }
+  #neatline #simile:active, #neatline.Waypoints.Simile #simile:active {
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: grabbing;
+  }
+
+  .timeline-band-layer-inner:active {
+    cursor: url(/themes/neatlight/images/grabbing.ico);
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing !important;
+    cursor: grabbing;
+  }
+
+  #simile *::selection,
+  #simile::selection {
+    background: transparent;
+    color: #000;
+  }
+
+  /*body {
+    &.neatline.show .timeline-band {
+      position: absolute;
+      background: #eee;
+      z-index: 10;
+      top: 0px;
+      height: 100px;
+      left: -1216px;
+      width: 3055px;
+    }
+  }*/
   /* Styling selection marker in timeline -- before is rectangle, after is arrow*/
   #simile:before {
     content: '';
@@ -1249,73 +1084,8 @@ th {
     left: 49%;
     top: 50%;
   }
-  #simile .timeline-ether-bg {
-    background-color: #f5f5f5;
-  }
 
-  /*Changing background color of timeline */
-  /* Positioning and Styling Simile Timeline */
-  #neatline #simile, #neatline.Waypoints.Simile #simile {
-    height: 100px;
-    width: 40%;
-    bottom: 10px;
-    right: 10px;
-    left: auto;
-    opacity: 1;
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    z-index: 998;
-    border-bottom: 5px solid black;
-    /*cursor: url(/themes/neatlight/images/mousescroll.png), grab;*/
-    cursor: url(/themes/neatlight/images/grab.ico);
-    cursor: -webkit-grab;
-    cursor: -moz-grab !important;
-    cursor: grab;
-  }
-  #neatline #simile:active, #neatline.Waypoints.Simile #simile:active {
-    cursor: -webkit-grabbing;
-    cursor: -moz-grabbing;
-    cursor: grabbing;
-  }
-
-  .timeline-band-layer-inner:active {
-    cursor: url(/themes/neatlight/images/grabbing.ico);
-    cursor: -webkit-grabbing;
-    cursor: -moz-grabbing !important;
-    cursor: grabbing;
-  }
-
-  #simile *::selection,
-  #simile::selection {
-    background: transparent;
-    color: #000;
-  }
-
-  /*Colophon Styling and Positioning*/
-  body.neatline.show #colophon {
-    font-size: .8em;
-    position: absolute;
-    bottom: 0px;
-    max-height: 15%;
-    border-top: none;
-  }
-
-  #colophon img {
-    display: block;
-    width: 90%;
-  }
-
-  body.neatline.show .timeline-band {
-    position: absolute;
-    background: #eee;
-    z-index: 10;
-    top: 0px;
-    height: 100px;
-    left: -1216px;
-    width: 3055px;
-  }
-
+  /* --- Waypoints --- */
   /* -- Waypoints -- */
   #neatline.Waypoints.Simile #waypoints {
     background-color: #cf4c4c;
@@ -1327,87 +1097,151 @@ th {
     right: auto;
     top: auto;
     border-radius: 10px;
-    opacity: 1;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    opacity: 1;
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    -moz-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
   }
-
-  #waypoints a.title {
-    padding: .5em 1em;
-    display: list-item;
-    list-style: none;
+  #neatline.Waypoints.Simile #waypoints a {
     cursor: default;
+    list-style: none;
+    color: #fff;
+    text-decoration: none;
+  }
+  #neatline.Waypoints.Simile #waypoints a.title {
+    padding: .5em 1em;
     line-height: 1.4em;
     font-weight: 500;
     text-align: center;
-    color: #fff;
   }
-  #waypoints a.title.highlighted {
+  #neatline.Waypoints.Simile #waypoints a.title.highlighted {
     background-color: inherit;
     color: #fff;
   }
-  #waypoints a.title.selected {
-    background-color: inherit;
-    color: #cf4c4c;
-    color: #fff;
-  }
-  #waypoints a.body {
+  #neatline.Waypoints.Simile #waypoints a.body {
     padding: 0 1em;
     display: list-item;
-    list-style: none;
-    cursor: default;
     line-height: 1em;
     font-weight: 300;
-    color: #fff;
     font-size: .7em;
-    text-decoration: none;
   }
-  #waypoints a.body.hover {
-    padding: 0 1em;
-    display: list-item;
-    list-style: none;
-    cursor: default;
-    line-height: 1em;
-    font-weight: 300;
-    color: #fff;
-    font-size: .7em;
-    text-decoration: none;
-  }
-  #waypoints p {
+  #neatline.Waypoints.Simile #waypoints p {
     margin-top: 0;
   }
-  #waypoints strong {
-    font-weight: 500;
+
+  /* --- Help --- */
+  #darken {
+    background: #000000;
+    opacity: .7;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    cursor: url(/themes/neatlight/images/close.png), auto;
   }
 
-  #header {
-    height: 50px;
+  #help_screen div {
+    display: none;
+    background-color: #4C8DCF;
+    position: absolute;
+    cursor: url(/themes/neatlight/images/close.png), auto;
+    z-index: 9999;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    -moz-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25) ;
+  }
+  #help_screen p {
+    color: white;
+    padding: 0px 12px;
+    font-size: 1em;
+  }
+  #help_screen a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .welcome {
+    top: 3.5em;
+    right: 1.5em;
+    max-width: 25%;
+    max-height: 25%;
+  }
+
+  .help1 {
+    top: 15%;
+    left: 10%;
+    right: auto;
+    width: 80%;
+    max-height: 80%;
+    padding-bottom: 5px;
+  }
+
+  .help2 {
+    bottom: 10px;
+    margin-left: 10px;
+    right: 10px;
+    min-width: 50%;
+    min-height: 120px;
+    padding-bottom: 5px;
+  }
+  .help2 img {
+    max-height: 100px;
+    float: right;
+    margin: auto 10px 10px 10px;
+  }
+
+  /* -- Item browse & search pages --*/
+  body.search h3 a, body.items.browse h3 a {
+    color: black;
+  }
+  body.search img, body.items.browse img {
+    max-height: 100px;
+    max-width: 100px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  body.search .hentry, body.search td, body.search tr, body.items.browse .hentry, body.items.browse td, body.items.browse tr {
+    max-width: 25%;
+    min-width: 400px;
+    height: 150px;
+    display: inline;
+    float: left;
+    padding-right: 1em;
+  }
+  body.search.items.browse input[type=text], body.search.search input[type=text], body.items.browse.items.browse input[type=text], body.items.browse.search input[type=text] {
+    font-size: 11pt;
+  }
+
+  /* Sorting and tags */
+  #sort-links {
+    margin-top: 10px;
     width: 100%;
   }
 
-  body.items.show #colophon {
-    padding-right: 40px;
-  }
-  body.items.show #colophon img {
+  #tags {
+    display: inline-block;
     float: right;
-    width: auto;
   }
-  body.items.browse #colophon {
-    padding-right: 40px;
-    display: block;
-    clear: both;
+  #tags a {
+    margin-left: 5px;
+    padding: 0 3px;
   }
-
-  #colophon img {
-    float: right;
-    width: auto;
-  }
-
-  body.items.show li {
-    display: inline;
+  #tags a.current {
+    background: #cf4c4c;
+    color: #f5f5f5;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
   }
 
   #sort-links-list {
@@ -1418,57 +1252,73 @@ th {
   #sort-links-list li {
     list-style-type: none;
     display: inline;
-    margin-left: 8px;
+    margin-left: 5px;
+    padding: 0 3px;
+  }
+  #sort-links-list li.desc {
+    background-color: #cf4c4c;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+  }
+  #sort-links-list li.desc a {
+    color: #f5f5f5;
+  }
+  #sort-links-list li.desc :before {
+    content: "\f175  ";
+    font-family: FontAwesome;
+    color: #f5f5f5;
+    font-size: 14px;
+  }
+  #sort-links-list li.asc {
+    background-color: #cf4c4c;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+  }
+  #sort-links-list li.asc a {
+    color: #f5f5f5;
+  }
+  #sort-links-list li.asc :before {
+    content: "\f176  ";
+    font-family: FontAwesome;
+    color: #f5f5f5;
+    font-size: 14px;
   }
 
-  #tags {
-    display: inline-block;
-    float: right;
+  /* -- Item show pages --*/
+  body.items.show #creator {
+    font-weight: 500;
   }
-  #tags a {
-    padding-left: 8px;
+  body.items.show #sources {
+    display: none;
   }
-  #tags a .current {
+  body.items.show .collapse, body.items.show .expand {
+    width: auto;
+    display: inline;
+    color: #cf4c4c;
+  }
+  body.items.show .collapse:hover, body.items.show .expand:hover {
+    cursor: pointer;
+  }
+  body.items.show #item-images div {
+    display: inline;
+    max-width: 40%;
+  }
+
+  /* --- File show pages ---*/
+  /* -- Simple pages --*/
+  strong {
     font-weight: 400;
   }
 
-  body.items.browse form {
-    list-style-type: none;
-    display: inline;
-  }
-  body.items.browse .page-input {
-    list-style-type: none;
-    display: inline;
-    margin-left: 0px;
-  }
-
-  body.items.browse #sort-links {
-    margin-top: 10px;
+  #header {
+    height: 50px;
     width: 100%;
   }
-  body.items.browse li.sorting.desc {
-    font-weight: 400;
-  }
-  body.items.browse li.sorting.asc {
-    font-weight: 400;
-  }
-  body.items.browse li.sorting.asc :before {
-    content: "\f176";
-    font-family: FontAwesome;
-    color: #cf4c4c;
-    font-size: 14px;
-  }
-  body.search li.sorting.asc :before {
-    content: "\f176";
-    font-family: FontAwesome;
-    color: #cf4c4c;
-    font-size: 14px;
-  }
-  body.items.browse li.sorting.desc :before, body.search li.sorting.desc :before {
-    content: "\f175";
-    font-family: FontAwesome;
-    color: #cf4c4c;
-    font-size: 14px;
+
+  body.items.show li {
+    display: inline;
   }
 
   #search-toggle {
@@ -1511,6 +1361,8 @@ th {
     float: right;
     width: 300px;
     border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     padding: 1px;
   }
   #search-container input {
@@ -1551,112 +1403,11 @@ th {
     right: 2.85em;
   }
   #search-container input[type=submit] {
-    font-family: "Roboto Condensed";
     background-color: transparent;
     line-height: 0;
     border: none;
     cursor: pointer;
   }
-
-  body.items.show #creator {
-    font-weight: 500;
-  }
-  body.items.show #sources {
-    display: none;
-  }
-  body.items.show .collapse, body.items.show .expand {
-    width: auto;
-    display: inline;
-    color: #cf4c4c;
-  }
-
-  .collapse:hover, .expand:hover {
-    cursor: pointer;
-  }
-
-  .fa-external-link:before {
-    color: #cf4c4c;
-  }
-
-  /*body.items.show #search-container input[type=submit]:hover, #search-container input[type=submit]:focus, #search-container input[type=submit]:active {
-      outline: 1px black;
-  }*/
-  body.items.browse .hentry img, body.search td img {
-    max-height: 100px;
-    max-width: 100px;
-    display: inline-block;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  body.items.browse .hentry {
-    max-width: 25%;
-    min-width: 400px;
-    height: 150px;
-    display: inline;
-    float: left;
-    padding-right: 1em;
-  }
-  body.search td, body.search tr {
-    max-width: 25%;
-    min-width: 400px;
-    height: 150px;
-    display: inline;
-    float: left;
-    padding-right: 1em;
-  }
-  body.items.browse input[type=text], body.search input[type=text] {
-    width: 20px;
-    font-family: "Roboto Condensed";
-    font-size: 11pt;
-  }
-
-  .body.search table {
-    width: 100%;
-  }
-
-  /* MK edit - commented out float and width as they caused an error in Neatline Simile. Simile box would appear empty until window was resized. */
-  body.neatline.show div.exhibit {
-    /*float:left;
-    width:1px;*/
-    /*width:75%; */
-    width: 100%;
-    /*position: relative;*/
-    /*position: absolute;*/
-  }
-
-  #darken {
-    background: #000000;
-    opacity: .7;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    display: none;
-    cursor: url(/themes/neatlight/images/close.png), auto;
-  }
-
-  #OpenLayers_Control_PanZoom_2 {
-    top: 54px !important;
-  }
-
-  .olControlLayerSwitcher .maximizeDiv, .olControlLayerSwitcher .minimizeDiv {
-    top: 55px;
-  }
-
-  #neatline.Waypoints.Simile .olControlLayerSwitcher {
-    right: 0;
-  }
-
-  body.items.show p, body.files.show p {
-    max-width: 75%;
-  }
-
-  /*input:focus, select:focus, textarea:focus, img:focus {
-      outline-color: black;
-  }*/
 }
 @media screen and (max-width: 40em) {
   body.items.show,

@@ -57,6 +57,7 @@ $(document).ready(function () {
 });
 </script>
 
+ <div id="help_screen">  
 
 <div class="welcome">
     <p>Welcome to the interactive IIT campus map. Click the ⓘ in the upper right corner of the screen to learn more about the map and how to use it. </p>
@@ -100,6 +101,8 @@ $(document).ready(function(){
 <img src="<?php echo img('fulltimeline.gif');?>"/>
 </div> 
 
+
+ </div> 
 <!-- Exhibit -->
 
 <div class="exhibit"> 
@@ -113,16 +116,8 @@ $(document).ready(function(){
 <div id="neatline-narrative" class="narrative">
     
   <!-- Colophon -->
-  <!-- <?php// echo common('colophon'); ?> -->
+  <!-- <?php // echo common('colophon'); ?> -->
 
 </div>
 
-<?php echo foot();
-
-echo <<<END
-<script>
-$('.timeline-band').css('width', '40%');
-
-</script>
-END;
-?>
+<?php echo foot();?>

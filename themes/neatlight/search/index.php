@@ -51,13 +51,15 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 ?>
 <div id="sort-links">
     
-    <div id="tags">
+    <!-- Tags disabled due to potential confusion with lack of ability to restrict based on search query -->
+    
+ <!--   <div id="tags">
         <span class="sort-label"><?php echo __('Filter by: '); ?>
         </span>
-        <?php $tags = get_records('Tag',array('sort_field' => 'name', 'sort_dir' => 'a','type' =>       'item', 'public' => true)); ?>
-        <?php echo "<a href=/items/browse?collection=1&sort_field=Dublin+Core%2CTitle&sort_dir=a>all  </a>"; ?> 
-        <?php echo tag_string($tags); ?>
-    </div>
+        <?php // $tags = get_records('Tag',array('sort_field' => 'name', 'sort_dir' => 'a','type' =>       'item', 'public' => true)); ?>
+        <?php // echo "<a href=/items/browse?collection=1&sort_field=Dublin+Core%2CTitle&sort_dir=a>all  </a>"; ?> 
+        <?php // echo tag_string($tags); ?>
+    </div> -->
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
 </div>
 <table id="search-results">
@@ -99,7 +101,7 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
         <?php endforeach; ?>
     </tbody>
 </table>
-<?php echo pagination_links(); ?>
+
 <?php else: ?>
 <div id="no-results">
     <p><?php echo __('Your query returned no results.');?></p>

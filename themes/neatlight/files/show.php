@@ -45,7 +45,7 @@ set_current_record('item', $item);
     <?php echo "<strong>Date:</strong> ", metadata('file', array('Dublin Core', 'Date')); ?>
     <br>
 <?php elseif (metadata('file', array('Dublin Core', 'Date')) ==NULL): ?>
-    <?php echo "date unknown"; ?>
+    <?php echo "<strong>Date:</strong> date unknown"; ?>
     <br>
 <?php endif; ?>
 

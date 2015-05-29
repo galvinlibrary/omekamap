@@ -2,6 +2,7 @@
 
 <?php $pageTitle = __('Browse Buildings'); echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse')); ?>
 
+<!-- jquery for hiding and showing search search container-->
 <script>
 $.fx.speeds._default = 250
 $(document).ready(function(){
@@ -17,6 +18,44 @@ $(document).ready(function(){
 });
 </script>
 
+<!-- script to check current URL and add .current class for bolding of current tags -->
+
+ <!--<script>
+$(function(){
+  $('a').each(function() {
+    var href = $(this).prop('href');
+    var url = window.location.search;
+    if (href === url) {
+      $(this).addClass('current');
+    }
+      else if (href.indexOf(url) > -1 ) {
+        
+      $(this).addClass('current');  
+       }
+(url.indexOf("extant") == -1 && href.indexOf('extant') == -1) {
+
+  });
+});
+</script> -->
+<script>
+$(function(){
+  $('#tags a').each(function() {
+      var href = $(this).prop('href');
+      var url = window.location.href;
+    if(url.indexOf("extant") > -1 && href.indexOf('extant') > -1) {
+        $(this).addClass('current');
+    }
+      else if (url.indexOf("demolished") > -1 && href.indexOf('demolished') > -1) {
+        $(this).addClass('current');
+    }
+      else if (url.indexOf("demolished") == -1 && href.indexOf('demolished') == -1 &&               url.indexOf("extant") == -1 && href.indexOf('extant') == -1) {
+        $(this).addClass('current');
+    }
+  });
+ });             
+
+</script>
+
 <div id="header">
 	<div class="nav">
 	<h1>IIT Campus Map</h1>
@@ -26,7 +65,7 @@ $(document).ready(function(){
 <div id="container">
 <div id="primary"> 
 
-<div id=search-toggle> 
+<div id="search-toggle"> 
     <i class="fa fa-search"></i>
     </div>
 <div id="search-container">
