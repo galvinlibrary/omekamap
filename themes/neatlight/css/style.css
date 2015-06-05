@@ -810,6 +810,7 @@ th {
   -- Help 
   - Item browse/search/view
   -- Item browse/search
+  --- Search container
   -- Item view
   --- File view
   - Simple pages
@@ -834,6 +835,11 @@ th {
   }
   body p {
     max-width: 75%;
+  }
+
+  #header {
+    height: 50px;
+    width: 100%;
   }
 
   .nav {
@@ -899,6 +905,10 @@ th {
 
   .fa {
     font-size: 14px;
+  }
+
+  strong {
+    font-weight: 400;
   }
 
   /* --- Headings --- */
@@ -1286,69 +1296,7 @@ th {
     font-size: 14px;
   }
 
-  /* -- Item show pages --*/
-  body.items.show #creator {
-    font-weight: 500;
-  }
-  body.items.show #sources {
-    display: none;
-  }
-  body.items.show .collapse, body.items.show .expand {
-    width: auto;
-    display: inline;
-    color: #cf4c4c;
-  }
-  body.items.show .collapse:hover, body.items.show .expand:hover {
-    cursor: pointer;
-  }
-  body.items.show #item-images div {
-    display: inline;
-    max-width: 40%;
-  }
-
-  /* --- File show pages ---*/
-  /* -- Simple pages --*/
-  strong {
-    font-weight: 400;
-  }
-
-  #header {
-    height: 50px;
-    width: 100%;
-  }
-
-  body.items.show li {
-    display: inline;
-  }
-
-  #search-toggle {
-    float: right;
-    display: inline;
-    margin-top: 2em;
-    padding: 4px 1px 1px 1px;
-    cursor: pointer;
-    color: #cf4c4c;
-    text-align: center;
-    height: 2em;
-    width: 1.5em;
-    font-size: 14px;
-  }
-  #search-toggle .fa::before {
-    position: relative;
-    right: .75em;
-    top: .55em;
-  }
-
-  #collapse-search {
-    display: inline;
-    color: #cf4c4c;
-    height: 2em;
-    padding-right: 5px;
-  }
-  #collapse-search .fa {
-    padding-top: 5px;
-  }
-
+  /* --- Search container --- */
   #search-container {
     float: right;
     margin-top: 1.75em;
@@ -1375,15 +1323,7 @@ th {
     height: 2.2em;
     border: 1px solid #ccc;
   }
-  #search-container input[type=button] button {
-    font-family: "Roboto Condensed";
-    color: #555;
-    width: 100%;
-    border: auto;
-  }
   #search-container button {
-    font-family: "Roboto Condensed";
-    font-size: 12pt;
     color: #cf4c4c;
     border: none;
     float: right;
@@ -1402,12 +1342,62 @@ th {
     top: -.1em;
     right: 2.85em;
   }
-  #search-container input[type=submit] {
-    background-color: transparent;
-    line-height: 0;
-    border: none;
+
+  /* Search toggle button */
+  #search-toggle {
+    float: right;
+    display: inline;
+    margin-top: 2em;
+    padding: 4px 1px 1px 1px;
+    cursor: pointer;
+    color: #cf4c4c;
+    text-align: center;
+    height: 2em;
+    width: 1.5em;
+    font-size: 14px;
+  }
+  #search-toggle .fa::before {
+    position: relative;
+    right: .75em;
+    top: .55em;
+  }
+
+  /* Collapse search button */
+  #collapse-search {
+    display: inline;
+    color: #cf4c4c;
+    height: 2em;
+    padding-right: 5px;
+  }
+  #collapse-search .fa {
+    padding-top: 5px;
+  }
+
+  /* -- Item show pages --*/
+  body.items.show #creator {
+    font-weight: 500;
+  }
+  body.items.show #sources {
+    display: none;
+  }
+  body.items.show .collapse, body.items.show .expand {
+    width: auto;
+    display: inline;
+    color: #cf4c4c;
+  }
+  body.items.show .collapse:hover, body.items.show .expand:hover {
     cursor: pointer;
   }
+  body.items.show #item-images div {
+    display: inline;
+    max-width: 40%;
+  }
+  body.items.show li {
+    display: inline;
+  }
+
+  /* --- File show pages ---*/
+  /* -- Simple pages --*/
 }
 @media screen and (max-width: 40em) {
   body.items.show,

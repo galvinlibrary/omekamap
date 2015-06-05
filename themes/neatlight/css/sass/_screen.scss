@@ -10,6 +10,7 @@
 -- Help 
 - Item browse/search/view
 -- Item browse/search
+--- Search container
 -- Item view
 --- File view
 - Simple pages
@@ -37,6 +38,11 @@ body {
     p {
     max-width: 75%;
     }
+}
+
+#header {
+  height: 50px;
+  width: 100%;
 }
 
 .nav {
@@ -97,11 +103,15 @@ body {
     font-family: "Roboto Condensed";
     font-size: 1em;
     font-weight: 300;
+    
 }
-
 
 .fa {
   font-size: 14px;
+}
+
+strong {
+    font-weight: 400; 
 }
 
 /* --- Headings --- */
@@ -510,88 +520,7 @@ body.search, body.items.browse {
 
 }
 
-
-/* -- Item show pages --*/
-
-body.items.show {
-  #creator {
-    font-weight: 500;
-  }
-    #sources {
-    display: none;
-  }
-    .collapse, .expand {
-    width: auto;
-    display: inline;
-    color: $red;
-  }
-    .collapse:hover, .expand:hover {
-    cursor: pointer;
-    }
-    #item-images div {
-        display: inline;
-        max-width: 40%;
-        }
-    }
-
-/* --- File show pages ---*/
-
-
-/* -- Simple pages --*/
-
-strong {
-    font-weight: 400; 
-}
-
-
-
-
-
-
-
-
-
-#header {
-  height: 50px;
-  width: 100%;
-}
-
-
-
-body.items.show li {
-  display: inline;
-}
-
-
-  
-
-#search-toggle {
-  float: right;
-  display: inline;
-  margin-top: 2em;
-  padding: 4px 1px 1px 1px;
-  cursor: pointer;
-  color: $red;
-  text-align: center;
-  height: 2em;
-  width: 1.5em;
-  font-size: 14px;
-  .fa::before {
-    position: relative;
-    right: .75em;
-    top: .55em;
-  }
-}
-
-#collapse-search {
-  display: inline;
-  color: $red;
-  height: 2em;
-  padding-right: 5px;
-  .fa {
-    padding-top: 5px;
-  }
-}
+/* --- Search container --- */
 
 #search-container {
   float: right;
@@ -615,16 +544,8 @@ body.items.show li {
       height: 2.2em;
       border: 1px solid #ccc;
     }
-    &[type=button] button {
-      font-family: "Roboto Condensed";
-      color: #555;
-      width: 100%;
-      border: auto;
-    }
   }
   button {
-    font-family: "Roboto Condensed";
-    font-size: 12pt;
     color: $red;
     border: none;
     float: right;
@@ -643,16 +564,72 @@ body.items.show li {
       right: 2.85em;
     }
   }
-  input[type=submit] {
-    background-color: transparent;
-    line-height: 0;
-    border: none;
-    cursor: pointer;
-  }
 }
 
 
 
+/* Search toggle button */
+#search-toggle {
+  float: right;
+  display: inline;
+  margin-top: 2em;
+  padding: 4px 1px 1px 1px;
+  cursor: pointer;
+  color: $red;
+  text-align: center;
+  height: 2em;
+  width: 1.5em;
+  font-size: 14px;
+  .fa::before {
+    position: relative;
+    right: .75em;
+    top: .55em;
+  }
+}
+
+/* Collapse search button */
+#collapse-search {
+  display: inline;
+  color: $red;
+  height: 2em;
+  padding-right: 5px;
+  .fa {
+    padding-top: 5px;
+  }
+}
+
+
+/* -- Item show pages --*/
+
+body.items.show {
+  #creator {
+    font-weight: 500;
+  }
+    #sources {
+    display: none;
+  }
+    .collapse, .expand {
+    width: auto;
+    display: inline;
+    color: $red;
+  }
+    .collapse:hover, .expand:hover {
+    cursor: pointer;
+    }
+    #item-images div {
+        display: inline;
+        max-width: 40%;
+        }
+    li {
+        display: inline
+    }
+}
+
+
+/* --- File show pages ---*/
+
+
+/* -- Simple pages --*/
 
 
 
@@ -660,3 +637,6 @@ body.items.show li {
 
 
 
+
+
+ 
