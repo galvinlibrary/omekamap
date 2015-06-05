@@ -54,6 +54,15 @@
                     <input type="submit" class="configure-button" name="configure-theme" value="<?php echo __('Configure'); ?>">
             </div>
         </div>
+        <div class="field">
+            <div class="two columns alpha">
+                <?php echo $this->formLabel('use_summary_page', __('Use Summary Page?')); ?>
+            </div>
+            <div class="five columns omega inputs">
+                <p class="explanation"><?php echo __("Start the exhibit on the summary page. If unchecked, start on the first exhibit page if it exists."); ?></p>
+                <?php echo $this->formCheckbox('use_summary_page', $exhibit->use_summary_page, array(), array('1', '0')); ?>
+            </div>
+        </div>
     </fieldset>
     <fieldset>
         <legend><?php echo __('Pages'); ?></legend>
@@ -76,7 +85,9 @@
             <?php echo $this->formSubmit('save_exhibit', __('Save Changes'), array('class'=>'submit big green button')); ?>
             <?php if ($exhibit->exists()): ?>
                 <?php echo exhibit_builder_link_to_exhibit($exhibit, __('View Public Page'), array('class' => 'big blue button', 'target' => '_blank')); ?>
-                <?php echo link_to($exhibit, 'delete-confirm', __('Delete'), array('class' => 'big red button delete-confirm')); ?>
+                <?php if (is_allowed($exhibit, 'delete')): ?>
+                    <?php echo link_to($exhibit, 'delete-confirm', __('Delete Exhibit'), array('class' => 'big red button delete-confirm')); ?>
+                <?php endif; ?>
             <?php endif; ?>
             <div id="public-featured">
                 <div class="public">

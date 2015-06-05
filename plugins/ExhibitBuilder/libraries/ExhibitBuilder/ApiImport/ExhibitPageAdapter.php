@@ -34,7 +34,7 @@ class ExhibitBuilder_ApiImport_ExhibitPageAdapter extends ApiImport_ResponseAdap
         }
         try {
             $this->record->save(true);
-            $this->addApiRecordIdMap();
+            $this->addOmekaApiImportRecordIdMap();
         } catch(Exception $e) {
             _log($e);
         }
@@ -54,7 +54,7 @@ class ExhibitBuilder_ApiImport_ExhibitPageAdapter extends ApiImport_ResponseAdap
     protected function getLocalResourceId($resourceData, $type)
     {
         $remoteId = $resourceData['id'];
-        $localRecord = $this->db->getTable('ApiRecordIdMap')->localRecord($type, $remoteId, $this->endpointUri);
+        $localRecord = $this->db->getTable('OmekaApiImportRecordIdMap')->localRecord($type, $remoteId, $this->endpointUri);
         return $localRecord->id;
     }
 }

@@ -90,12 +90,23 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
     public $owner_id;
 
     /**
+     * Whether the summary page will be used.
+     *
+     * @var integer
+     */
+    public $use_summary_page = 1;
+
+    /**
      * Quick-access mappings for related records.
      *
      * @var array
      */
     protected $_related = array(
-        'Pages' => 'getPages', 'TopPages' => 'getTopPages', 'Tags' => 'getTags'
+        'Pages' => 'getPages',
+        'PagesById' => 'getPagesById',
+        'PagesByParent' => 'getPagesByParent',
+        'TopPages' => 'getTopPages',
+        'Tags' => 'getTags'
     );
 
     /**
@@ -230,9 +241,42 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
     }
 
     /**
-     * Get all the pages for this exhibit with no parent (top-level pages).
+     * Get all pages for this Exhibit, indexed by page ID.
      *
      * @return Exhibit[]
+     */
+    public function getPagesById()
+    {
+        $pages = $this->Pages;
+        $pagesById = array();
+        foreach ($pages as $page) {
+            $pagesById[$page->id] = $page;
+        }
+
+        return $pagesById;
+    }
+
+    /**
+     * Get all pages for this Exhibit, indexed by parent ID.
+     *
+     * @return array
+     */
+    public function getPagesByParent()
+    {
+        $pages = $this->Pages;
+        $pagesByParent = array();
+        foreach ($pages as $page) {
+            $parent_id = $page->parent_id ? (int) $page->parent_id : 0;
+            $pagesByParent[$parent_id][] = $page;
+        }
+
+        return $pagesByParent;
+    }
+
+    /**
+     * Get all the pages for this exhibit with no parent (top-level pages).
+     *
+     * @return ExhibitPage[]
      */
     public function getTopPages()
     {
@@ -240,17 +284,26 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
             return array();
         }
 
-        return $this->getTable('ExhibitPage')->findBy(array('exhibit'=>$this->id, 'topOnly'=>true, 'sort_field'=>'order'));
+        $pages = $this->PagesByParent;
+
+        return isset($pages[0]) ? $pages[0] : array();
     }
 
-    public function getTopPageBySlug($slug)
-    {
-
-    }
-
+    /**
+     * Get the first page with no parent.
+     *
+     * @return ExhibitPage|null
+     */
     public function getFirstTopPage()
     {
+        $topPages = $this->getTopPages();
 
+        $topPage = null;
+        if ($topPages) {
+            $topPage = current($topPages);
+        }
+
+        return $topPage;
     }
 
     /**

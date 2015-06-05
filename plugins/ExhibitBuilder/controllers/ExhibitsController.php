@@ -14,6 +14,8 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_AbstractActionC
 {
     protected $_autoCsrfProtection = true;
 
+    protected $_browseRecordsPerPage = self::RECORDS_PER_PAGE_SETTING;
+
     /**
      * Controller-wide initialization. Sets the underlying model to use.
      */
@@ -23,40 +25,33 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_AbstractActionC
     }
 
     /**
-     * Use global settings for determining browse page limits.
+     * Return the default sorting parameters to use when none are specified.
      *
-     * @return int
+     * @return array|null Array of parameters, with the first element being the
+     *  sort_field parameter, and the second (optionally) the sort_dir.
      */
-    public function _getBrowseRecordsPerPage()
+    protected function _getBrowseDefaultSort()
     {
-        if (is_admin_theme()) {
-            return (int) get_option('per_page_admin');
-        } else {
-            return (int) get_option('per_page_public');
+        switch(get_option('exhibit_builder_sort_browse')) {
+            case 'alpha':
+                return array('title');
+            case 'recent':
+                return array('added', 'd');
+            default:
+                return null;
         }
     }
 
     /**
-     * Browse exhibits action.
+     * Return message for confirming exhibit deletion.
+     *
+     * @param Exhibit $exhibit
+     * @return string
      */
-    public function browseAction()
+    protected function _getDeleteConfirmMessage($exhibit)
     {
-        $request = $this->getRequest();
-        $sortParam = $request->getParam('sort');
-        $sortOptionValue = get_option('exhibit_builder_sort_browse');
-
-        if (!isset($sortParam)) {
-            switch ($sortOptionValue) {
-                case 'alpha':
-                    $request->setParam('sort', 'alpha');
-                    break;
-                case 'recent':
-                    $request->setParam('sort', 'recent');
-                    break;
-            }
-        }
-
-        parent::browseAction();
+        return __('This will permanently delete the entire exhibit "%s"'
+            .' and all its pages.', $exhibit->title);
     }
 
     /**
@@ -118,20 +113,15 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_AbstractActionC
         if (!$exhibit) {
             throw new Omeka_Controller_Exception_404;
         }
-        
-        $params = $this->getRequest()->getParams();
-        unset($params['action']);
-        unset($params['controller']);
-        unset($params['module']);
-        //loop through the page slugs to make sure each one actually exists
-        //then render the last one
-        //pass all the pages into the view so the breadcrumb can be built there
-        unset($params['slug']); // don't need the exhibit slug
+
+        $slugParams = array('page_slug_1', 'page_slug_2', 'page_slug_3');
 
         $pageTable = $this->_helper->db->getTable('ExhibitPage');
 
+        $exhibitPage = null;
         $parentPage = null;
-        foreach($params as $slug) {
+        foreach($slugParams as $param) {
+            $slug = $this->getParam($param);
             if(!empty($slug)) {
                 $exhibitPage = $pageTable->findBySlug($slug, $exhibit, $parentPage);
                 if($exhibitPage) {
@@ -140,6 +130,9 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_AbstractActionC
                     throw new Omeka_Controller_Exception_404;
                 }
             }
+        }
+        if (!$exhibitPage) {
+            throw new Omeka_Controller_Exception_404;
         }
 
         fire_plugin_hook('show_exhibit', array(
@@ -164,6 +157,20 @@ class ExhibitBuilder_ExhibitsController extends Omeka_Controller_AbstractActionC
         }
 
         fire_plugin_hook('show_exhibit', array('exhibit' => $exhibit));
+
+        if (!$exhibit->use_summary_page) {
+            $firstPage = $exhibit->getFirstTopPage();
+            if (null !== $firstPage) {
+                $this->_helper->redirector->gotoRoute(
+                    array(
+                        'slug' => $exhibit->slug,
+                        'page_slug_1' => $firstPage->slug
+                    ),
+                    'exhibitShow'
+                );
+            }
+        }
+
         $this->view->exhibit = $exhibit;
     }
 

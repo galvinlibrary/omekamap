@@ -48,6 +48,24 @@ function exhibit_builder_is_current_page($exhibitPage)
         || ($exhibitPage && $currentExhibitPage && $exhibitPage->id == $currentExhibitPage->id));
 }
 
+
+/**
+ * Return a nested-list tree navigation of exhibit pages.
+ *
+ * @param Exhibit|null Exhibit to print the tree of.
+ * @param ExhibitPage|null If given, indicates the "current" page which will
+ *  be marked by a CSS class in the output
+ * @return string
+ */
+function exhibit_builder_page_tree($exhibit = null, $exhibitPage = null)
+{
+    if (!$exhibit) {
+        $exhibit = get_current_record('exhibit');
+    }
+
+    return get_view()->exhibitPageTree($exhibit, $exhibitPage);
+}
+
 /**
  * Return the markup for the exhibit page navigation.
  *
@@ -69,13 +87,18 @@ function exhibit_builder_page_nav($exhibitPage = null)
     $html .= '<li>';
     $html .= '<a class="exhibit-title" href="'. html_escape(exhibit_builder_exhibit_uri($exhibit)) . '">';
     $html .= html_escape($exhibit->title) .'</a></li>' . "\n";
+    
+    $levelNumber = 1;
+    
     foreach ($pagesTrail as $page) {
         $linkText = $page->title;
         $pageExhibit = $page->getExhibit();
         $pageParent = $page->getParent();
         $pageSiblings = ($pageParent ? exhibit_builder_child_pages($pageParent) : $pageExhibit->getTopPages()); 
 
-        $html .= "<li>\n<ul>\n";
+        $html .= "<li>\n<ul class=\"exhibit-nav-level-$levelNumber\">\n";
+        $levelNumber +=1;
+        
         foreach ($pageSiblings as $pageSibling) {
             $html .= '<li' . ($pageSibling->id == $page->id ? ' class="current"' : '') . '>';
             $html .= '<a class="exhibit-page-title" href="' . html_escape(exhibit_builder_exhibit_uri($exhibit, $pageSibling)) . '">';

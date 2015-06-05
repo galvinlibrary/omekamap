@@ -1,6 +1,6 @@
 </div><!-- end content -->
 
-<footer>
+<footer role="contentinfo">
 
         <div id="custom-footer-text">
             <?php if ( $footerText = get_theme_option('Footer Text') ): ?>
@@ -21,7 +21,9 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function () {
-    Seasons.showAdvancedForm();
+    Omeka.showAdvancedForm();
+    Omeka.skipNav();
+    Omeka.megaMenu("#top-nav");
     Seasons.mobileSelectNav();
 });
 </script>

@@ -3,7 +3,7 @@
     </div><!-- end wrap -->
 
 
-    <footer>
+    <footer role="contentinfo">
 
         <div id="footer-text">
             <?php echo get_theme_option('Footer Text'); ?>
@@ -20,8 +20,10 @@
     <script type="text/javascript">
     jQuery(document).ready(function () {
         Omeka.showAdvancedForm();
-        Omeka.moveNavOnResize();
-        Omeka.mobileMenu();
+        Omeka.skipNav();
+        Omeka.megaMenu();
+        ThanksRoy.moveNavOnResize();
+        ThanksRoy.mobileMenu();
     });
     </script>
 

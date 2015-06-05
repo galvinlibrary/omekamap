@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `{$db->prefix}exhibits` (
     `added` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
     `modified` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
     `owner_id` INT UNSIGNED DEFAULT NULL,
+    `use_summary_page` TINYINT(1) DEFAULT 1,
     PRIMARY KEY  (`id`),
     UNIQUE KEY `slug` (`slug`),
     KEY `public` (`public`)
@@ -267,6 +268,11 @@ SQL
         $sql = "ALTER TABLE `{$db->prefix}exhibit_pages` DROP COLUMN `layout`";
         $db->query($sql);
     }
+
+    if (version_compare($oldVersion, '3.1.4', '<')) {
+        $sql = "ALTER TABLE `{$db->prefix}exhibits` ADD `use_summary_page` TINYINT(1) DEFAULT 1 AFTER `owner_id`";
+        $db->query($sql);
+    }
 }
 
 /**
@@ -467,12 +473,17 @@ function exhibit_builder_public_theme_name($themeName)
     if ($request->getModuleName() == 'exhibit-builder') {
         $slug = $request->getParam('slug');
         $exhibit = get_db()->getTable('Exhibit')->findBySlug($slug);
-        if ($exhibit && ($exhibitTheme = $exhibit->theme)) {
+        if ($exhibit && $exhibit->theme) {
+            // Save result in static for future calls
+            $exhibitTheme = $exhibit->theme;
             add_filter('theme_options', 'exhibit_builder_theme_options');
             return $exhibitTheme;
         }
     }
-    return $themeName;
+
+    // Short-circuit any future calls to the hook if we didn't change the theme
+    $exhibitTheme = $themeName;
+    return $exhibitTheme;
 }
 
 /**
