@@ -45,8 +45,8 @@ Neatline.module('Simile', {
       /**
        * Start SIMILE.
        */
-      start: function(exhibit) {
-        this._initSimile(exhibit);
+     start: function(exhibit) {
+       this._initSimile(exhibit);
         this._initResize();
         this._initSelect();
         this._initScroll();
@@ -115,6 +115,9 @@ Neatline.module('Simile', {
        */
       _initSelect: function() {
         this.band._eventPainter._showBubble = _.bind(function(x, y, evt) {
+          Neatline.vent.trigger('unselect', {
+            model: evt.nModel, source: this.slug
+          });
           Neatline.vent.trigger('select', {
             model: evt.nModel, source: this.slug
           });
@@ -156,6 +159,7 @@ Neatline.module('Simile', {
       load: function() {
         this.records.update({ widget: 'Simile' }, _.bind(this.ingest, this));
       },
+      
 
 
       /**
@@ -243,7 +247,7 @@ Neatline.module('Simile', {
           this.setCenterDate(middle.toDate().toISOString());
         }
 
-        // If just a start date is defined, focus on it.
+         If just a start date is defined, focus on it.
 
         else if (d1.isValid()) {
           this.setCenterDate(d1.toDate().toISOString());
