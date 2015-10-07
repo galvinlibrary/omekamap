@@ -13,11 +13,18 @@
     @import "screen20";
 }
 
+@media screen and (max-width:20em) {
+    @import "screen20";
+}
 
     
+@media screen and (-webkit-min-device-pixel-ratio : 2) {
+        @import "screenRetina";
+}
 
-
-
+@media screen and (min-device-pixel-ratio : 2) {
+        @import "screenRetina";
+}
 
 
 

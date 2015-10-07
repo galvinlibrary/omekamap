@@ -48,7 +48,7 @@ $(function(){
       else if (url.indexOf("demolished") > -1 && href.indexOf('demolished') > -1) {
         $(this).addClass('current');
     }
-      else if (url.indexOf("demolished") == -1 && href.indexOf('demolished') == -1 &&               url.indexOf("extant") == -1 && href.indexOf('extant') == -1) {
+      else if (url.indexOf("demolished") == -1 && href.indexOf('demolished') == -1 && url.indexOf("extant") == -1 && href.indexOf('extant') == -1) {
         $(this).addClass('current');
     }
   });
@@ -58,19 +58,21 @@ $(function(){
 
 <div id="header">
 	<div class="nav">
-	<h1>IIT Campus Map</h1>
+	<h1>
+        <?php echo option('site_title'); ?>
+    </h1>
 	<?php echo public_nav_main(); ?>
 	</div> 
 </div>
-<div id="container">
-<div id="primary"> 
+
+<div id="primary" class="clearfix"> 
 
 <div id="search-toggle"> 
     <i class="fa fa-search"></i>
     </div>
 <div id="search-container">
     <div id="collapse-search"><i class="fa fa-times"></i></div>
-    <?php echo search_form(array()); ?>
+    <?php echo search_form(array('submit_value' => "" )); ?>
 </div>    
     
 <h2><?php echo $pageTitle;?> <?php // echo __('(%s total)', $total_results); ?></h2>
@@ -90,7 +92,7 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
     <div id="tags">
         <span class="sort-label"><?php echo __('Filter by: '); ?>
         </span>
-        <?php $tags = get_records('Tag',array('sort_field' => 'name', 'sort_dir' => 'a','type' =>       'item', 'public' => true)); ?>
+        <?php $tags = get_records('Tag',array('sort_field' => 'name', 'sort_dir' => 'a','type' => 'item', 'public' => true)); ?>
         <?php echo "<a href=/items/browse?collection=1&sort_field=Dublin+Core%2CTitle&sort_dir=a>all  </a>"; ?> 
         <?php echo tag_string($tags); ?>
     </div>
@@ -102,13 +104,13 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 <?php foreach (loop('items') as $item): ?>
 <div class="item hentry">
 	<div class="item-img">
+        
     <?php if (metadata('item', 'has thumbnail')): ?>
 		<?php echo link_to_item(item_image('square_thumbnail')); ?>
         <?php else: ?>
             <img alt="No image available" src="<?php echo img('noimage.gif');?>"/>
 	<?php endif; ?>
     </div>
-    <h3><?php // echo metadata('item', array('Dublin Core', 'Title'), array()); ?></h3>
     <h3><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array(), 'show'); ?></h3>
     <div class="item-meta">
     
@@ -134,19 +136,20 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 </div><!-- end class="item hentry" -->
 <?php endforeach; ?>
 <br>
+ 
 <?php //echo pagination_links(); ?>
 
 <!-- output linking disabled -->
 <!-- <div id="outputs">
-    <span class="outputs-label"><?php// echo __('Output Formats'); ?></span>
-    <?php// echo output_format_list(false); ?>
+    <span class="outputs-label"><?php // echo __('Output Formats'); ?></span>
+    <?php // echo output_format_list(false); ?>
 </div> -->
 
-<div id="colophon">
+
 <?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
-<hr class="content" >
-<img alt="IIT Logo" title="IIT Logo" src="<?php echo img('IIT_Logo_horiz_186_blk.gif');?>"/>
-</div>
-</div>
+<div class="clear"><!-- --></div>
+</div> <!-- End of Primary. -->
+
+
 <?php echo foot(); ?>
-</div>
+

@@ -27,13 +27,15 @@
 
 </div> 
 <script>
-$(document).ready(function(){  
+//$(document).ready(function(){
+$(window).load( function() {
  $('.help').hide();
 });
 </script>
 
 <script>
-    $(document).ready(function(){
+    //$(document).ready(function(){
+$(window).load( function() {
     var visited = $.cookie('visited')
     if (visited == null) {
         $('.welcome').hide().delay(1000).fadeIn('slow');
@@ -60,7 +62,7 @@ $(document).ready(function () {
  <div id="help_screen">  
 
 <div class="welcome">
-    <p>Welcome to the interactive IIT campus map. Click the ⓘ in the upper right corner of the screen to learn more about the map and how to use it. </p>
+    <p>Welcome to Building History. Click the ⓘ in the upper right corner of the screen to learn more about the map and how to use it. </p>
 </div>
 
 <div class="help1">
@@ -69,19 +71,22 @@ $(document).ready(function () {
 
 <script>
 $.fx.speeds._default = 1
-$(document).ready(function(){
-  $(".welcome").click(function(){
+//$(document).ready(function(){
+$(window).load( function() {
+$(".welcome").click(function(){
     $(this).fadeOut();
   });
 });
-$(document).ready(function(){
+//$(document).ready(function(){
+$(window).load( function() {
   $(".help1").on('click', function(e) { 
    if( e.target !== $("#help1x")[0]) 
        return;
 	$(".help1").fadeOut();
   });
 });
-$(document).ready(function(){
+//$(document).ready(function(){
+$(window).load( function() {
   $("#darken, .help1, .help2").click(function() { 
     $(".help1").fadeOut();
     $(".help2").fadeOut();
@@ -89,7 +94,8 @@ $(document).ready(function(){
     $('.help').fadeOut();
   });
 });
-$(document).ready(function(){
+//$(document).ready(function(){
+$(window).load( function() {
   $("#OpenLayers_Map_4_OpenLayers_ViewPort, .nav, #waypoints, #simile").click(function(){
     $(".welcome").fadeOut();
   });
@@ -120,4 +126,4 @@ $(document).ready(function(){
 
 </div>
 
-<?php echo foot();?>
+<?php // echo foot();?>

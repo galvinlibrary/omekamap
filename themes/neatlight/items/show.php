@@ -31,7 +31,9 @@ $(document).ready(function(){
 	<!-- navigation menu -->
 
 <div class="nav">
-<h1>IIT Campus Map</h1>
+<h1>
+        <?php echo option('site_title'); ?>
+    </h1>
 <?php echo public_nav_main(); ?>
 </div> 
 
@@ -42,14 +44,12 @@ $(document).ready(function(){
 
     <h2><?php echo metadata('item', array('Dublin Core','Title')); ?></h2>
 	
-	<div id="item-images">
-        <!-- <?php// echo files_for_item(); ?> -->
+	<div id="item-images-grid">
 		<?php echo item_image_gallery($attrs = array(), $imageType = 'square_thumbnail', $filesShow = true, $item = null); ?> 
-     <?php if (metadata('item', 'has files')): ?>
-        <p>Click on an image to see a larger version</p>
-        <?php else: ?>
+        <!-- If items has no files, show the 'No Image Available' image -->
+        <?php if (metadata('item', 'has files') == NULL): ?>
             <img alt="No image available" src="<?php echo img('noimage.gif');?>"/>
-     <?php endif; ?>
+        <?php endif; ?>
    </div>
 
     <div id="metadata">
@@ -63,32 +63,35 @@ $(document).ready(function(){
 <?php if (metadata('item', array('Dublin Core', 'Contributor')) !=NULL): ?>
       
 	<?php echo metadata('item', array('Dublin Core', 'Contributor')); ?>
+        <br>
 <?php endif; ?>        
         
 <?php if (metadata('item', array('Dublin Core', 'Date')) !=NULL): ?>
-        <br>
 	<?php echo metadata('item', array('Dublin Core', 'Date')); ?>
+                <br>
 <?php endif; ?>
 
 <?php if (metadata('item', array('Dublin Core', 'Coverage')) !=NULL): ?>
-        <br>
 	<?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
+        <br>
 <?php endif; ?>
-<br>
+
 <?php if (metadata('item', array('Dublin Core', 'Description')) !=NULL): ?>
-<br>
+        <br>
         <?php echo metadata('item', array('Dublin Core', 'Description')); ?>
-<br>
+        <br>
         <?php endif; ?>
 <?php if (metadata('item', array('Dublin Core', 'Alternative Title')) !=NULL): ?>
         <br>
         <?php echo "Formerly/Also Known As:" ; ?>
 	<?php echo metadata('item', array('Dublin Core', 'Alternative Title')); ?>
+        <br>
 <?php endif; ?>
-<br><br>
+<br>
 <?php if (metadata('item', array('Item Type Metadata', 'Local URL')) !=NULL): ?>
-	<?php $LocalURL = metadata('item', array('Item Type Metadata', 'Local URL')); ?>
-	<?php echo "<a href='$LocalURL' target='_blank'>See this item on the map</a>"; ?>
+    <?php $LocalURL = metadata('item', array('Item Type Metadata', 'Local URL')); ?>
+	<?php echo "<a href=/neatline/show/map#records/$LocalURL> See this item on the map</a>"; ?>
+        <i class="fa fa-globe"></i>
         <br>
         <?php endif; ?>
 
@@ -104,34 +107,15 @@ $(document).ready(function(){
     <div id="sources">
     <?php if (metadata('item', array('Dublin Core', 'Source')) !=NULL): ?>
 	<?php echo metadata('item', array('Dublin Core', 'Source')); ?>
+    
 <?php endif; ?>
     </div>
     </div>    
     <br>
-    <br>
     <?php echo "Have a question, correction, or a story that you'd like to share about this building? Contact us at <a href='mailto:digitalcollections@iit.edu'>digitalcollections@iit.edu</a>."; ?>
-  
-</div>
-
-
-    
-
-<div id="colophon">
- <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
-<hr />
-
-<!-- Next/Previous Item linking disabled -->
-   <!-- <ul class="item-pagination navigation">
-        <li id="previous-item" class="previous"><?php// echo link_to_previous_item_show(); ?></li>
-        <li id="next-item" class="next"><?php //echo link_to_next_item_show(); ?></li>
-    </ul> -->
-	
-	<img alt="IIT Logo" title="IIT Logo" src="<?php echo img('IIT_Logo_horiz_186_blk.gif');?>"/>
-	
+    <br/>
 </div>
 
 </div> <!-- End of Primary. -->
 
-
-
- <?php echo foot(); ?>
+<?php echo foot(); ?>

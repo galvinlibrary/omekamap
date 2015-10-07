@@ -1,6 +1,6 @@
 /**
  * @license jquery.panzoom.js v2.0.5
- * Updated: Thu Jul 03 2014
+ * Updated: Thu Apr 03 2014
  * Add pan and zoom functionality to any element
  * Copyright (c) 2014 timmy willison
  * Released under the MIT license
@@ -75,15 +75,9 @@
 
 	$.pointertouch = events;
 
-	var document = window.document;
 	var datakey = '__pz__';
 	var slice = Array.prototype.slice;
 	var pointerEvents = !!window.PointerEvent;
-	var supportsInputEvent = (function() {
-		var input = document.createElement('input');
-		input.setAttribute('oninput', 'return');
-		return typeof input.oninput === 'function';
-	})();
 
 	// Regex
 	var rupper = /([A-Z])/g;
@@ -244,7 +238,7 @@
 	 * @param {Object} [options] - An object literal containing options to override default options
 	 *  (See Panzoom.defaults for ones not listed below)
 	 * @param {jQuery} [options.$zoomIn] - zoom in buttons/links collection (you can also bind these yourself
-	 *  e.g. $button.on('click', function(e) { e.preventDefault(); $elem.panzoom('zoomIn'); });)
+	 *  e.g. $button.on('click', function(e) { e.preventDefault(); $elem.panzooom('zoomIn'); });)
 	 * @param {jQuery} [options.$zoomOut] - zoom out buttons/links collection on which to bind zoomOut
 	 * @param {jQuery} [options.$zoomRange] - zoom in/out with this range control
 	 * @param {jQuery} [options.$reset] - Reset buttons/links collection on which to bind the reset method
@@ -998,9 +992,7 @@
 				events[ (pointerEvents ? 'pointerdown' : 'mousedown') + ns ] = function() {
 					self.transition(true);
 				};
-				// Zoom on input events if available and change events
-				// See https://github.com/timmywil/jquery.panzoom/issues/90
-				events[ (supportsInputEvent ? 'input' : 'change') + ns ] = function() {
+				events[ 'change' + ns ] = function() {
 					self.zoom(+this.value, { noSetRange: true });
 				};
 				$zoomRange.on(events);

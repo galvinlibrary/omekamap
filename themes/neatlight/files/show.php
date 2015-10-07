@@ -1,5 +1,3 @@
-<!-- This item show file was adapted by AS from the code for the Neatline pop-up bubble (see themes/neatlight/neatline/exhibits/item.php) -->
-
 <?php queue_css_file('style'); ?>
 
 <?php
@@ -10,17 +8,60 @@ set_current_record('item', $item);
 
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 
+<script type="text/javascript">
+    var $elem = $(".panzoom").panzoom();
+    //$(document).ready(function(){
+    $(window).load( function() {
+    // basic panzoom script
+        $(".panzoom").panzoom({
+            $reset: $(".reset"),
+            $zoomIn: $(".zoom-in"),
+            $zoomOut: $(".zoom-out"),
+            $zoomRange: $(".zoom-range"),
+            contain: "invert",
+            increment: 0.125,
+            minScale: 1,
+            maxScale: 1.75,
+        });
+        //script to allow focal mousewheel scrolling
+       $(".panzoom").on('mousewheel.focal', function(e) {
+        e.preventDefault();
+        var delta = e.delta || e.originalEvent.wheelDelta;
+        var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
+        $(".panzoom").panzoom('zoom', zoomOut, {
+          increment: 0.125,
+          animate: false,
+          focal: e
+        });
+      });
+    });
+</script>
+
 <div id="header">
 <div class="nav">
-<h1>IIT Campus Map</h1>
+<h1>
+        <?php echo option('site_title'); ?>
+    </h1>
 <?php echo public_nav_main(); ?>
 </div> 
 </div>
 
 <div id="primary"> 
+    <div id="panzoom">
 
-    <?php echo file_image('fullsize', $file = null); ?><br>
-	<?php // echo file_markup($file, array('imageSize' => 'fullsize', 'linkToFile' => true)); ?>
+    <?php echo file_image('fullsize', array('class' => 'panzoom'), $file = null); ?><br>
+         <section class="panzoom-buttons">
+
+  <button title="zoom out" class="zoom-out"></button>
+  <input type="range" class="zoom-range" min="0.4" max="5" step="0.05"/>
+  <button title="zoom in" class="zoom-in"></button>
+  <button title="reset to original view" class="reset"></button>
+</section>
+
+        
+    </div>
+    
+
 
 <!-- file metadata with checks for existence of each field to avoid extra line breaks -->
     
@@ -51,7 +92,7 @@ set_current_record('item', $item);
 
 <!-- Source -->
 <?php if (metadata('file', array('Dublin Core', 'Format')) !=NULL): ?>
-    <?php echo "<strong>Source:</strong> ", metadata('file', array('Dublin Core', 'Format')); ?>
+    <?php echo "<strong>Original format:</strong> ", metadata('file', array('Dublin Core', 'Format')); ?>
     <br>
 <?php elseif (metadata('file', array('Dublin Core', 'Format')) ==NULL): ?>
 <?php endif; ?>
@@ -71,23 +112,12 @@ set_current_record('item', $item);
     <br>
     
 <?php echo link_to_item("← Back"); ?>
-    <hr />
 
-<div id="colophon">
  <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
-
-<!-- Next/Previous Item linking disabled -->
-   <!-- <ul class="item-pagination navigation">
-        <li id="previous-item" class="previous"><?php// echo link_to_previous_item_show(); ?></li>
-        <li id="next-item" class="next"><?php //echo link_to_next_item_show(); ?></li>
-    </ul> -->
-	
-	<img alt="IIT Logo" title="IIT Logo" src="<?php echo img('IIT_Logo_horiz_186_blk.gif');?>"/>
-	
-</div>
 
 </div> <!-- End of Primary. -->
 
-
-
  <?php echo foot(); ?>
+
+
+

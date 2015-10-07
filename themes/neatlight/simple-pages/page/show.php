@@ -22,10 +22,6 @@
     $text = metadata('simple_pages_page', 'text', array('no_escape' => true));
     echo $this->shortcodes($text);
     ?>
-	<hr />
-</div>
-<div id="colophon">
-<img alt="IIT Logo" title="IIT Logo" src="<?php echo img('IIT_Logo_horiz_186_blk.gif');?>"/>
 </div>
 
 

@@ -24,7 +24,9 @@ $(document).ready(function(){
 
 <div id="header">
 	<div class="nav">
-	<h1>IIT Campus Map</h1>
+	<h1>
+        <?php echo option('site_title'); ?>
+    </h1>
 	<?php echo public_nav_main(); ?>
 	</div> 
 </div>
@@ -32,12 +34,12 @@ $(document).ready(function(){
 <div id="container">
 <div id="primary"> 
     
-<div id=search-toggle> 
+<div id="search-toggle"> 
     <i class="fa fa-search"></i>
     </div>
 <div id="search-container">
     <div id="collapse-search"><i class="fa fa-times"></i></div>
-    <?php echo search_form(array()); ?>
+    <?php echo search_form(array('submit_value' => "" )); ?>
 </div>    
 
     <h2><?php echo $pageTitle; ?></h2>
@@ -108,5 +110,7 @@ $sortLinks[__('Date')] = 'Dublin Core,Date';
 </div>
 <?php endif; ?>
     </div>
+</div>
 <?php echo foot(); ?>
+</div>
 </div>

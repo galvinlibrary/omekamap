@@ -9,9 +9,3 @@
 
 ?>
 
-<div id="colophon">
-  <?php echo get_theme_option('Footer Text'); ?>
-
-  <!-- AS added logo image (file can be found in theme's images folder) -->
-  <img alt="IIT Logo" title="IIT Logo" src="<?php echo img('IIT_Logo_horiz_186_blk.gif');?>"/>
-</div>

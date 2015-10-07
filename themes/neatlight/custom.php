@@ -349,3 +349,5 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
     }
 }
 /* END Edit #1 (from application/views/helpers/FileMarkup.php) */
+
+
