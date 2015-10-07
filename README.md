@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # Welcome to Omeka
-test test test
-&copy; 2008-2012 [Roy Rosenzweig Center for History and New Media](http://chnm.gmu.edu/)
+
+© 2008-2015 [Roy Rosenzweig Center for History and New Media](http://chnm.gmu.edu/)
 
 This program is free software: you can redistribute it and/or modify it under 
 the terms of the GNU General Public License as published by the Free Software 
@@ -29,11 +28,3 @@ licenses.
 
 Release notes for Omeka are available at
 [http://omeka.org/codex/Release_Notes](http://omeka.org/codex/Release_Notes).
-=======
-omeka2
-======
-
-Galvin Omeka Neatline Exhibit
-
-This is a work in progress for an Omeka Neatline exhibit, using the Neatlight theme developed by David McClure.
->>>>>>> 8247ed9fd5bf2ca5d8522224a25e553e61844233
