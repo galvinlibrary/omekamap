@@ -1,30 +1,4 @@
-# Welcome to Omeka
+Building History (buildinghistory.iit.edu)is a digital collection created and curated by the Paul V. Galvin Library at Illinois Institute of Technology. Building History shows Illinois Tech's Mies Campus as it is and as it once was, exploring the ways that the campus and the Bronzeville neighborhood around it have changed (and changed each other) since the Armour Institute opened its doors in 1893.  
 
-© 2008-2015 [Roy Rosenzweig Center for History and New Media](http://chnm.gmu.edu/)
+This repository contains the theme and plugin files for Building History, including all edits made by Galvin Library staff. It does not include the core Omeka files.
 
-This program is free software: you can redistribute it and/or modify it under 
-the terms of the GNU General Public License as published by the Free Software 
-Foundation, either version 3 of the License, or (at your option) any later
-version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with
-this program. If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
-
-Omeka includes:
-
-* [Zend Framework](http://framework.zend.com)
-* [getID3](http://getid3.sourceforge.net)
-* [jQuery](http://jquery.com)
-* [jQuery UI](http://jqueryui.com)
-* [TinyMCE](http://tinymce.moxiecode.com)
-* [Silk Icons](http://www.famfamfam.com/lab/icons/silk/)
-
-Use and modifications of these libraries must comply with their respective 
-licenses.
-
-Release notes for Omeka are available at
-[http://omeka.org/codex/Release_Notes](http://omeka.org/codex/Release_Notes).
